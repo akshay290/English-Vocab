@@ -3,13 +3,28 @@ info:
   # Do not change the title, if the title changes, the import paths will be broken
   title: Api
   version: 0.1.0
-  description: API specification
+  description: SSC Vocabulary Master API
 servers:
   - url: /api
     description: Base API path
 tags:
   - name: health
     description: Health operations
+  - name: auth
+    description: Authentication
+  - name: vocabulary
+    description: Vocabulary management
+  - name: tests
+    description: Test management
+  - name: progress
+    description: User progress tracking
+  - name: revision
+    description: Smart revision
+  - name: stats
+    description: Statistics and dashboard
+  - name: admin
+    description: Admin operations
+
 paths:
   /healthz:
     get:
@@ -24,7 +39,852 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/HealthStatus"
+
+  # ─── Auth ────────────────────────────────────────────────────────────────
+  /auth/register:
+    post:
+      operationId: registerUser
+      tags: [auth]
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserRegistration"
+      responses:
+        "201":
+          description: Registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "400":
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "409":
+          description: Email already exists
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /auth/login:
+    post:
+      operationId: loginUser
+      tags: [auth]
+      summary: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserLogin"
+      responses:
+        "200":
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "401":
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /auth/me:
+    get:
+      operationId: getCurrentUser
+      tags: [auth]
+      summary: Get current user
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Current user
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ─── Vocabulary ──────────────────────────────────────────────────────────
+  /vocabulary:
+    get:
+      operationId: listVocabulary
+      tags: [vocabulary]
+      summary: List vocabulary items with filters
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+        - name: alphabet
+          in: query
+          schema:
+            type: string
+        - name: topic
+          in: query
+          schema:
+            type: string
+        - name: difficulty
+          in: query
+          schema:
+            type: string
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        "200":
+          description: Vocabulary list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VocabularyPage"
+
+    post:
+      operationId: createVocabulary
+      tags: [vocabulary]
+      summary: Create vocabulary item (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VocabularyInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VocabularyItem"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /vocabulary/browse/alphabet:
+    get:
+      operationId: browseAlphabet
+      tags: [vocabulary]
+      summary: Get word count per alphabet letter
+      responses:
+        "200":
+          description: Alphabet browse data
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AlphabetCount"
+
+  /vocabulary/browse/topics:
+    get:
+      operationId: browseTopics
+      tags: [vocabulary]
+      summary: Get all topics/categories with counts
+      responses:
+        "200":
+          description: Topics list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/TopicInfo"
+
+  /vocabulary/random:
+    get:
+      operationId: getRandomWords
+      tags: [vocabulary]
+      summary: Get random vocabulary words (word of the day / quick quiz)
+      parameters:
+        - name: count
+          in: query
+          schema:
+            type: integer
+            default: 5
+        - name: category
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Random words
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/VocabularyItem"
+
+  /vocabulary/{id}:
+    get:
+      operationId: getVocabularyItem
+      tags: [vocabulary]
+      summary: Get single vocabulary item
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Vocabulary item
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VocabularyItem"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    put:
+      operationId: updateVocabulary
+      tags: [vocabulary]
+      summary: Update vocabulary item (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/VocabularyUpdate"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VocabularyItem"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+    delete:
+      operationId: deleteVocabulary
+      tags: [vocabulary]
+      summary: Delete vocabulary item (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ─── Tests ───────────────────────────────────────────────────────────────
+  /tests:
+    post:
+      operationId: createTest
+      tags: [tests]
+      summary: Create a new test
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TestConfig"
+      responses:
+        "201":
+          description: Test created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestWithQuestions"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /tests/history:
+    get:
+      operationId: getTestHistory
+      tags: [tests]
+      summary: Get user test history
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 10
+      responses:
+        "200":
+          description: Test history
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestHistoryPage"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /tests/{id}:
+    get:
+      operationId: getTest
+      tags: [tests]
+      summary: Get test with questions
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Test
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestWithQuestions"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /tests/{id}/submit:
+    post:
+      operationId: submitTest
+      tags: [tests]
+      summary: Submit test answers
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TestSubmission"
+      responses:
+        "200":
+          description: Test result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestResult"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /tests/{id}/result:
+    get:
+      operationId: getTestResult
+      tags: [tests]
+      summary: Get test result
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Test result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TestResult"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ─── Progress ────────────────────────────────────────────────────────────
+  /progress:
+    get:
+      operationId: getUserProgress
+      tags: [progress]
+      summary: Get user progress summary
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Progress summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProgressSummary"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /progress/words:
+    get:
+      operationId: getWordProgress
+      tags: [progress]
+      summary: Get word-level progress
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        "200":
+          description: Word progress list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WordProgressPage"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /progress/words/{wordId}:
+    put:
+      operationId: updateWordProgress
+      tags: [progress]
+      summary: Update word progress
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: wordId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ProgressUpdate"
+      responses:
+        "200":
+          description: Updated
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/WordProgress"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /progress/weak-words:
+    get:
+      operationId: getWeakWords
+      tags: [progress]
+      summary: Get weak words for the user
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Weak words
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/VocabularyItem"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ─── Revision ────────────────────────────────────────────────────────────
+  /revision:
+    get:
+      operationId: getRevisionWords
+      tags: [revision]
+      summary: Get recommended words for revision
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: count
+          in: query
+          schema:
+            type: integer
+            default: 10
+      responses:
+        "200":
+          description: Revision words
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RevisionSession"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /revision/complete:
+    post:
+      operationId: completeRevision
+      tags: [revision]
+      summary: Mark revision session complete
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RevisionCompletion"
+      responses:
+        "200":
+          description: Revision completed
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  # ─── Stats ───────────────────────────────────────────────────────────────
+  /stats/dashboard:
+    get:
+      operationId: getDashboardStats
+      tags: [stats]
+      summary: Get user dashboard statistics
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Dashboard stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DashboardStats"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /stats/leaderboard:
+    get:
+      operationId: getLeaderboard
+      tags: [stats]
+      summary: Get top performers leaderboard
+      parameters:
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 10
+      responses:
+        "200":
+          description: Leaderboard
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LeaderboardEntry"
+
+  /stats/category-breakdown:
+    get:
+      operationId: getCategoryBreakdown
+      tags: [stats]
+      summary: Get vocabulary count by category
+      responses:
+        "200":
+          description: Category breakdown
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/CategoryCount"
+
+  # ─── Admin ───────────────────────────────────────────────────────────────
+  /admin/auth:
+    post:
+      operationId: adminLogin
+      tags: [admin]
+      summary: Admin login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AdminCredentials"
+      responses:
+        "200":
+          description: Admin login successful
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthResponse"
+        "401":
+          description: Invalid admin credentials
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /admin/stats:
+    get:
+      operationId: getAdminStats
+      tags: [admin]
+      summary: Get admin dashboard statistics
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Admin stats
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AdminStats"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /admin/users:
+    get:
+      operationId: adminListUsers
+      tags: [admin]
+      summary: List all users (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+        - name: search
+          in: query
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Users list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserListPage"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /admin/users/{id}:
+    delete:
+      operationId: adminDeleteUser
+      tags: [admin]
+      summary: Delete user (admin)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Deleted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessResponse"
+        "404":
+          description: Not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /admin/vocabulary:
+    get:
+      operationId: adminListVocabulary
+      tags: [admin]
+      summary: List all vocabulary (admin, with inactive)
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: category
+          in: query
+          schema:
+            type: string
+        - name: search
+          in: query
+          schema:
+            type: string
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        "200":
+          description: Vocabulary list
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/VocabularyPage"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /admin/vocabulary/bulk:
+    post:
+      operationId: adminBulkCreateVocabulary
+      tags: [admin]
+      summary: Bulk create vocabulary items (admin)
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BulkVocabularyInput"
+      responses:
+        "201":
+          description: Created
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BulkCreateResult"
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
 components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
   schemas:
     HealthStatus:
       type: object
@@ -34,3 +894,648 @@ components:
       required:
         - status
 
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+
+    SuccessResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+        message:
+          type: string
+      required:
+        - success
+
+    # ─── Auth Schemas ──────────────────────────────────────────────────────
+    UserRegistration:
+      type: object
+      required: [name, email, password]
+      properties:
+        name:
+          type: string
+          minLength: 2
+        email:
+          type: string
+
+        password:
+          type: string
+          minLength: 6
+
+    UserLogin:
+      type: object
+      required: [email, password]
+      properties:
+        email:
+          type: string
+
+        password:
+          type: string
+
+    User:
+      type: object
+      required: [id, name, email, role, createdAt]
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+          enum: [user, admin]
+        createdAt:
+          type: string
+          format: date-time
+
+    AuthResponse:
+      type: object
+      required: [token, user]
+      properties:
+        token:
+          type: string
+        user:
+          $ref: "#/components/schemas/User"
+
+    # ─── Vocabulary Schemas ────────────────────────────────────────────────
+    VocabularyItem:
+      type: object
+      required: [id, word, meaning, category, difficulty, alphabet]
+      properties:
+        id:
+          type: integer
+        word:
+          type: string
+        meaning:
+          type: string
+        hindiMeaning:
+          type: ["string", "null"]
+        exampleSentence:
+          type: ["string", "null"]
+        synonyms:
+          type: array
+          items:
+            type: string
+        antonyms:
+          type: array
+          items:
+            type: string
+        difficulty:
+          type: string
+          enum: [easy, medium, hard]
+        category:
+          type: string
+        alphabet:
+          type: string
+        topics:
+          type: array
+          items:
+            type: string
+        examRefs:
+          type: array
+          items:
+            type: string
+        isActive:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+
+    VocabularyInput:
+      type: object
+      required: [word, meaning, category, difficulty, alphabet]
+      properties:
+        word:
+          type: string
+        meaning:
+          type: string
+        hindiMeaning:
+          type: string
+        exampleSentence:
+          type: string
+        synonyms:
+          type: array
+          items:
+            type: string
+        antonyms:
+          type: array
+          items:
+            type: string
+        difficulty:
+          type: string
+          enum: [easy, medium, hard]
+        category:
+          type: string
+        alphabet:
+          type: string
+        topics:
+          type: array
+          items:
+            type: string
+        examRefs:
+          type: array
+          items:
+            type: string
+
+    VocabularyUpdate:
+      type: object
+      properties:
+        word:
+          type: string
+        meaning:
+          type: string
+        hindiMeaning:
+          type: string
+        exampleSentence:
+          type: string
+        synonyms:
+          type: array
+          items:
+            type: string
+        antonyms:
+          type: array
+          items:
+            type: string
+        difficulty:
+          type: string
+          enum: [easy, medium, hard]
+        category:
+          type: string
+        alphabet:
+          type: string
+        topics:
+          type: array
+          items:
+            type: string
+        examRefs:
+          type: array
+          items:
+            type: string
+        isActive:
+          type: boolean
+
+    VocabularyPage:
+      type: object
+      required: [items, total, page, limit, totalPages]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/VocabularyItem"
+        total:
+          type: integer
+        page:
+          type: integer
+        limit:
+          type: integer
+        totalPages:
+          type: integer
+
+    AlphabetCount:
+      type: object
+      required: [letter, count]
+      properties:
+        letter:
+          type: string
+        count:
+          type: integer
+
+    TopicInfo:
+      type: object
+      required: [name, slug, count]
+      properties:
+        name:
+          type: string
+        slug:
+          type: string
+        count:
+          type: integer
+        description:
+          type: ["string", "null"]
+
+    BulkVocabularyInput:
+      type: object
+      required: [items]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/VocabularyInput"
+
+    BulkCreateResult:
+      type: object
+      required: [created, failed]
+      properties:
+        created:
+          type: integer
+        failed:
+          type: integer
+        errors:
+          type: array
+          items:
+            type: string
+
+    # ─── Test Schemas ──────────────────────────────────────────────────────
+    TestConfig:
+      type: object
+      required: [totalQuestions]
+      properties:
+        categories:
+          type: array
+          items:
+            type: string
+        alphabets:
+          type: array
+          items:
+            type: string
+        difficulty:
+          type: ["string", "null"]
+        totalQuestions:
+          type: integer
+          minimum: 5
+          maximum: 100
+        timeDurationMinutes:
+          type: ["integer", "null"]
+        questionMode:
+          type: string
+          enum: [random, alphabet_wise]
+          default: random
+
+    TestQuestion:
+      type: object
+      required: [id, position, questionText, options, vocabItemId]
+      properties:
+        id:
+          type: integer
+        position:
+          type: integer
+        questionText:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        userAnswer:
+          type: ["integer", "null"]
+        vocabItemId:
+          type: integer
+
+    TestSummary:
+      type: object
+      required: [id, status, totalQuestions, createdAt]
+      properties:
+        id:
+          type: integer
+        status:
+          type: string
+          enum: [in_progress, completed]
+        totalQuestions:
+          type: integer
+        score:
+          type: ["integer", "null"]
+        timeDurationMinutes:
+          type: ["integer", "null"]
+        timeTakenSeconds:
+          type: ["integer", "null"]
+        config:
+          type: object
+          additionalProperties: true
+        createdAt:
+          type: string
+          format: date-time
+        completedAt:
+          type: ["string", "null"]
+
+    TestWithQuestions:
+      type: object
+      required: [id, status, totalQuestions, questions, createdAt]
+      properties:
+        id:
+          type: integer
+        status:
+          type: string
+          enum: [in_progress, completed]
+        totalQuestions:
+          type: integer
+        score:
+          type: ["integer", "null"]
+        timeDurationMinutes:
+          type: ["integer", "null"]
+        config:
+          type: object
+          additionalProperties: true
+        questions:
+          type: array
+          items:
+            $ref: "#/components/schemas/TestQuestion"
+        createdAt:
+          type: string
+          format: date-time
+
+    TestSubmission:
+      type: object
+      required: [answers, timeTakenSeconds]
+      properties:
+        answers:
+          type: array
+          items:
+            $ref: "#/components/schemas/QuestionAnswer"
+        timeTakenSeconds:
+          type: integer
+
+    QuestionAnswer:
+      type: object
+      required: [questionId, selectedOption]
+      properties:
+        questionId:
+          type: integer
+        selectedOption:
+          type: ["integer", "null"]
+
+    TestResultQuestion:
+      type: object
+      required: [id, position, questionText, options, correctAnswer, userAnswer, isCorrect, vocabItemId]
+      properties:
+        id:
+          type: integer
+        position:
+          type: integer
+        questionText:
+          type: string
+        options:
+          type: array
+          items:
+            type: string
+        correctAnswer:
+          type: integer
+        userAnswer:
+          type: ["integer", "null"]
+        isCorrect:
+          type: ["boolean", "null"]
+        vocabItemId:
+          type: integer
+        vocabItem:
+          $ref: "#/components/schemas/VocabularyItem"
+
+    TestResult:
+      type: object
+      required: [id, score, totalQuestions, percentage, timeTakenSeconds, questions, createdAt, completedAt]
+      properties:
+        id:
+          type: integer
+        score:
+          type: integer
+        totalQuestions:
+          type: integer
+        percentage:
+          type: number
+        timeTakenSeconds:
+          type: integer
+        questions:
+          type: array
+          items:
+            $ref: "#/components/schemas/TestResultQuestion"
+        createdAt:
+          type: string
+          format: date-time
+        completedAt:
+          type: string
+          format: date-time
+
+    TestHistoryPage:
+      type: object
+      required: [items, total, page, limit, totalPages]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/TestSummary"
+        total:
+          type: integer
+        page:
+          type: integer
+        limit:
+          type: integer
+        totalPages:
+          type: integer
+
+    # ─── Progress Schemas ──────────────────────────────────────────────────
+    ProgressSummary:
+      type: object
+      required: [wordsLearned, wordsInProgress, weakWords, totalWordsAvailable, testsAttempted, averageScore, streakDays, lastActive]
+      properties:
+        wordsLearned:
+          type: integer
+        wordsInProgress:
+          type: integer
+        weakWords:
+          type: integer
+        totalWordsAvailable:
+          type: integer
+        testsAttempted:
+          type: integer
+        averageScore:
+          type: number
+        streakDays:
+          type: integer
+        lastActive:
+          type: ["string", "null"]
+        categoryProgress:
+          type: array
+          items:
+            $ref: "#/components/schemas/CategoryProgress"
+
+    CategoryProgress:
+      type: object
+      required: [category, learned, total]
+      properties:
+        category:
+          type: string
+        learned:
+          type: integer
+        total:
+          type: integer
+
+    WordProgress:
+      type: object
+      required: [id, vocabItemId, status, timesSeen, timesCorrect]
+      properties:
+        id:
+          type: integer
+        vocabItemId:
+          type: integer
+        status:
+          type: string
+          enum: [new, learning, learned, weak]
+        timesSeen:
+          type: integer
+        timesCorrect:
+          type: integer
+        lastSeen:
+          type: ["string", "null"]
+        nextReview:
+          type: ["string", "null"]
+        vocabItem:
+          $ref: "#/components/schemas/VocabularyItem"
+
+    WordProgressPage:
+      type: object
+      required: [items, total, page, limit, totalPages]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/WordProgress"
+        total:
+          type: integer
+        page:
+          type: integer
+        limit:
+          type: integer
+        totalPages:
+          type: integer
+
+    ProgressUpdate:
+      type: object
+      required: [status]
+      properties:
+        status:
+          type: string
+          enum: [new, learning, learned, weak]
+
+    # ─── Revision Schemas ─────────────────────────────────────────────────
+    RevisionSession:
+      type: object
+      required: [words, totalDue]
+      properties:
+        words:
+          type: array
+          items:
+            $ref: "#/components/schemas/VocabularyItem"
+        totalDue:
+          type: integer
+
+    RevisionCompletion:
+      type: object
+      required: [wordIds, results]
+      properties:
+        wordIds:
+          type: array
+          items:
+            type: integer
+        results:
+          type: array
+          items:
+            $ref: "#/components/schemas/RevisionWordResult"
+
+    RevisionWordResult:
+      type: object
+      required: [wordId, remembered]
+      properties:
+        wordId:
+          type: integer
+        remembered:
+          type: boolean
+
+    # ─── Stats Schemas ────────────────────────────────────────────────────
+    DashboardStats:
+      type: object
+      required: [wordsLearned, testsAttempted, currentStreak, averageScore, recentTests, dailyGoalProgress]
+      properties:
+        wordsLearned:
+          type: integer
+        testsAttempted:
+          type: integer
+        currentStreak:
+          type: integer
+        averageScore:
+          type: number
+        wordsToRevise:
+          type: integer
+        weakWordsCount:
+          type: integer
+        recentTests:
+          type: array
+          items:
+            $ref: "#/components/schemas/TestSummary"
+        dailyGoalProgress:
+          type: integer
+
+    LeaderboardEntry:
+      type: object
+      required: [rank, userId, name, wordsLearned, testsAttempted, averageScore]
+      properties:
+        rank:
+          type: integer
+        userId:
+          type: integer
+        name:
+          type: string
+        wordsLearned:
+          type: integer
+        testsAttempted:
+          type: integer
+        averageScore:
+          type: number
+
+    CategoryCount:
+      type: object
+      required: [category, count]
+      properties:
+        category:
+          type: string
+        count:
+          type: integer
+
+    # ─── Admin Schemas ────────────────────────────────────────────────────
+    AdminCredentials:
+      type: object
+      required: [password]
+      properties:
+        password:
+          type: string
+
+    AdminStats:
+      type: object
+      required: [totalUsers, totalVocabulary, totalTests, activeUsers, categoryBreakdown]
+      properties:
+        totalUsers:
+          type: integer
+        totalVocabulary:
+          type: integer
+        totalTests:
+          type: integer
+        activeUsers:
+          type: integer
+        categoryBreakdown:
+          type: array
+          items:
+            $ref: "#/components/schemas/CategoryCount"
+        recentActivity:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+
+    UserListPage:
+      type: object
+      required: [items, total, page, limit, totalPages]
+      properties:
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/User"
+        total:
+          type: integer
+        page:
+          type: integer
+        limit:
+          type: integer
+        totalPages:
+          type: integer

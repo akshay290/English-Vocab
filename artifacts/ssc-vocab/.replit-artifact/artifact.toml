@@ -1,0 +1,27 @@
+kind = "web"
+previewPath = "/"
+title = "SSC Vocabulary Master"
+version = "1.0.0"
+id = "artifacts/ssc-vocab"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 26172
+
+[services.development]
+run = "pnpm --filter @workspace/ssc-vocab run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/ssc-vocab", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/ssc-vocab/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "26172"
+BASE_PATH = "/"

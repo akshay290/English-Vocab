@@ -1,0 +1,161 @@
+import { useGetUserProgress } from '@workspace/api-client-react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Progress } from '@/components/ui/progress';
+import { BrainCircuit, BookA, Flame, Target, Trophy, AlertTriangle } from 'lucide-react';
+import { Skeleton } from '@/components/ui/skeleton';
+import { formatCategory, getCategoryColor } from '@/lib/utils';
+import { Badge } from '@/components/ui/badge';
+
+export default function ProgressPage() {
+  const { data: progress, isLoading } = useGetUserProgress();
+
+  if (isLoading || !progress) {
+    return (
+      <div className="container mx-auto px-4 py-8 max-w-5xl space-y-8">
+        <Skeleton className="h-10 w-48 mb-8" />
+        <div className="grid md:grid-cols-4 gap-4">
+          {[1, 2, 3, 4].map(i => <Skeleton key={i} className="h-32 w-full rounded-xl" />)}
+        </div>
+        <div className="grid md:grid-cols-2 gap-8">
+          <Skeleton className="h-96 w-full rounded-xl" />
+          <Skeleton className="h-96 w-full rounded-xl" />
+        </div>
+      </div>
+    );
+  }
+
+  const overallProgress = progress.totalWordsAvailable > 0 
+    ? Math.round((progress.wordsLearned / progress.totalWordsAvailable) * 100) 
+    : 0;
+
+  return (
+    <div className="container mx-auto px-4 py-8 max-w-5xl space-y-8">
+      <div>
+        <h1 className="text-3xl font-bold tracking-tight">Your Progress</h1>
+        <p className="text-muted-foreground mt-1">Track your vocabulary mastery journey</p>
+      </div>
+
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <Card className="hover-elevate">
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between mb-4">
+              <div className="h-10 w-10 bg-emerald-500/10 text-emerald-500 rounded-lg flex items-center justify-center">
+                <BookA className="h-5 w-5" />
+              </div>
+            </div>
+            <div className="space-y-1">
+              <h3 className="text-3xl font-bold">{progress.wordsLearned}</h3>
+              <p className="text-sm text-muted-foreground font-medium">Words Learned</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="hover-elevate">
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between mb-4">
+              <div className="h-10 w-10 bg-amber-500/10 text-amber-500 rounded-lg flex items-center justify-center">
+                <Flame className="h-5 w-5" />
+              </div>
+            </div>
+            <div className="space-y-1">
+              <h3 className="text-3xl font-bold">{progress.streakDays} Days</h3>
+              <p className="text-sm text-muted-foreground font-medium">Current Streak</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="hover-elevate">
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between mb-4">
+              <div className="h-10 w-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center">
+                <BrainCircuit className="h-5 w-5" />
+              </div>
+            </div>
+            <div className="space-y-1">
+              <h3 className="text-3xl font-bold">{progress.wordsInProgress}</h3>
+              <p className="text-sm text-muted-foreground font-medium">In Progress</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card className="hover-elevate">
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between mb-4">
+              <div className="h-10 w-10 bg-destructive/10 text-destructive rounded-lg flex items-center justify-center">
+                <AlertTriangle className="h-5 w-5" />
+              </div>
+            </div>
+            <div className="space-y-1">
+              <h3 className="text-3xl font-bold text-destructive">{progress.weakWords}</h3>
+              <p className="text-sm text-muted-foreground font-medium">Weak Words</p>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-8">
+        <Card className="border-primary/20 shadow-md">
+          <CardHeader className="bg-primary/5 border-b border-primary/10">
+            <CardTitle className="text-lg flex items-center gap-2">
+              <Trophy className="h-5 w-5 text-primary" /> Overall Mastery
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="p-8 flex flex-col items-center justify-center text-center">
+            <div className="relative w-48 h-48 flex items-center justify-center mb-6">
+              <svg className="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="8" className="text-muted/30" />
+                <circle 
+                  cx="50" cy="50" r="45" fill="none" stroke="currentColor" strokeWidth="8" 
+                  className="text-primary" 
+                  strokeDasharray={`${overallProgress * 2.827} 282.7`} 
+                  strokeLinecap="round" 
+                />
+              </svg>
+              <div className="absolute inset-0 flex flex-col items-center justify-center">
+                <span className="text-4xl font-black">{overallProgress}%</span>
+              </div>
+            </div>
+            <p className="text-muted-foreground font-medium">
+              You have mastered {progress.wordsLearned} out of {progress.totalWordsAvailable} available words.
+            </p>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="border-b bg-muted/20">
+            <CardTitle className="text-lg">Category Breakdown</CardTitle>
+            <CardDescription>Your progress across different topics</CardDescription>
+          </CardHeader>
+          <CardContent className="p-0">
+            <div className="divide-y">
+              {progress.categoryProgress?.map((cat) => {
+                const percent = cat.total > 0 ? Math.round((cat.learned / cat.total) * 100) : 0;
+                return (
+                  <div key={cat.category} className="p-4 space-y-2">
+                    <div className="flex justify-between items-center mb-1">
+                      <div className="flex items-center gap-2">
+                        <Badge variant="outline" className={`border ${getCategoryColor(cat.category)}`}>
+                          {formatCategory(cat.category)}
+                        </Badge>
+                      </div>
+                      <span className="text-sm font-bold">{percent}%</span>
+                    </div>
+                    <Progress value={percent} className="h-2" />
+                    <p className="text-xs text-muted-foreground text-right">
+                      {cat.learned} / {cat.total} words
+                    </p>
+                  </div>
+                );
+              })}
+              {(!progress.categoryProgress || progress.categoryProgress.length === 0) && (
+                <div className="p-8 text-center text-muted-foreground">
+                  No category data available yet.
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+}
