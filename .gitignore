@@ -1,5 +1,12 @@
 # See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
+# Pasted diagnostic files (may contain credentials or terminal history)
+attached_assets/Pasted-*.txt
+
+# Local environment files — never commit these
+.env
+.env.local
+
 # compiled output
 dist
 tmp
