@@ -1,7 +1,7 @@
 import { useGetUserProgress } from '@workspace/api-client-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { BrainCircuit, BookA, Flame, Target, Trophy, AlertTriangle } from 'lucide-react';
+import { BrainCircuit, BookA, Flame, Target, Trophy } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { formatCategory, getCategoryColor } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
@@ -24,8 +24,10 @@ export default function ProgressPage() {
     );
   }
 
-  const overallProgress = progress.totalWordsAvailable > 0 
-    ? Math.round((progress.wordsLearned / progress.totalWordsAvailable) * 100) 
+  // Overall mastery = words answered correctly / words attempted in tests
+  const wordsAttempted = (progress as any).wordsAttempted ?? 0;
+  const overallProgress = wordsAttempted > 0
+    ? Math.round((progress.wordsLearned / wordsAttempted) * 100)
     : 0;
 
   return (
@@ -81,13 +83,13 @@ export default function ProgressPage() {
         <Card className="hover-elevate">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-4">
-              <div className="h-10 w-10 bg-destructive/10 text-destructive rounded-lg flex items-center justify-center">
-                <AlertTriangle className="h-5 w-5" />
+              <div className="h-10 w-10 bg-primary/10 text-primary rounded-lg flex items-center justify-center">
+                <Target className="h-5 w-5" />
               </div>
             </div>
             <div className="space-y-1">
-              <h3 className="text-3xl font-bold text-destructive">{progress.weakWords}</h3>
-              <p className="text-sm text-muted-foreground font-medium">Weak Words</p>
+              <h3 className="text-3xl font-bold">{progress.testsAttempted}</h3>
+              <p className="text-sm text-muted-foreground font-medium">Tests Taken</p>
             </div>
           </CardContent>
         </Card>
@@ -116,7 +118,9 @@ export default function ProgressPage() {
               </div>
             </div>
             <p className="text-muted-foreground font-medium">
-              You have mastered {progress.wordsLearned} out of {progress.totalWordsAvailable} available words.
+              {wordsAttempted === 0
+                ? "Take a test to start tracking your mastery."
+                : `You answered ${progress.wordsLearned} out of ${wordsAttempted} attempted words correctly.`}
             </p>
           </CardContent>
         </Card>

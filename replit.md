@@ -1,45 +1,54 @@
-# [Project name]
+# SSC Vocabulary Master
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+A full-stack vocabulary preparation web app for SSC CGL, CHSL, CPO, MTS, and Banking exam aspirants. Features MCQ tests, progress tracking, spaced repetition revision, leaderboard, and admin panel.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
+- **Frontend** — `pnpm --filter @workspace/ssc-vocab run dev` (Vite, port 5173, workflow: "SSC Vocab Frontend")
+- **API Server** — `PORT=8080 pnpm --filter @workspace/api-server run dev` (Express, port 8080, workflow: "API Server")
+- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only, run after schema edits)
+- `pnpm --filter @workspace/db run seed` — seed vocabulary data
+- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from OpenAPI spec
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
 
 ## Stack
 
-- pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- pnpm workspaces, Node.js 20, TypeScript 5
+- **Frontend**: React 18, Vite, TailwindCSS v4, shadcn/ui, Framer Motion, Wouter v3
+- **API**: Express 5, PORT injected by workflow (`PORT=8080`)
+- **DB**: PostgreSQL (Replit-managed) + Drizzle ORM
+- **Auth**: JWT (jsonwebtoken + bcryptjs), SESSION_SECRET as Replit Secret
+- **Codegen**: Orval (from OpenAPI spec) → TanStack Query hooks
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/ssc-vocab/src/` — React frontend pages and components
+- `artifacts/api-server/src/routes/` — Express route handlers
+- `lib/db/src/schema/index.ts` — single source of truth for DB schema
+- `lib/api-spec/openapi.yaml` — OpenAPI spec (source for codegen)
+- `lib/api-client-react/` — generated hooks (do not edit manually)
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
-
-## Product
-
-_Describe the high-level user-facing capabilities of this app once they exist._
-
-## User preferences
-
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- **Score formula**: +2 correct, −0.5 incorrect, 0 unattempted. Stored as `real` in `tests.score`. Max score = `totalQuestions × 2`.
+- **Progress & mastery**: All stats (wordsLearned, averageAccuracy, categoryBreakdown) computed from `test_questions` results, not from `user_word_progress` manual status. This ensures stats update immediately after any test.
+- **Overall Mastery**: words answered correctly at least once ÷ words attempted in tests × 100.
+- **Average Accuracy**: total correct answers ÷ total attempted (non-null) answers × 100, to 2 decimal places.
+- **Back navigation**: Completed-test redirects use `{ replace: true }` so the browser back button skips the in-progress test URL.
+- **API server** does not use `--env-file` — `DATABASE_URL` and `SESSION_SECRET` are runtime-managed by Replit.
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- After any schema change, run `pnpm --filter @workspace/db run push` before restarting the API.
+- The `score` column in `tests` table is `real` (not integer) to support +2/−0.5 scoring.
+- Wouter v3: use flat routes, avoid nested `Switch` with `/:rest*` (causes blank render).
+- The `api-client-react` package uses a `custom-fetch` subpath export — must be in `package.json` exports.
+
+## User preferences
+
+- Keep all changes minimal — don't restructure or alter anything beyond what's explicitly requested.
 
 ## Pointers
 
-- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details.

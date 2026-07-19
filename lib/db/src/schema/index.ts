@@ -1,4 +1,4 @@
-import { pgTable, serial, text, integer, boolean, timestamp, jsonb, unique } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, integer, boolean, timestamp, jsonb, unique, real } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod/v4";
 
@@ -60,7 +60,7 @@ export const testsTable = pgTable("tests", {
     .references(() => usersTable.id, { onDelete: "cascade" }),
   config: jsonb("config").notNull(),
   status: text("status").notNull().default("in_progress"), // in_progress | completed
-  score: integer("score"),
+  score: real("score"),
   totalQuestions: integer("total_questions").notNull(),
   timeDurationMinutes: integer("time_duration_minutes"),
   timeTakenSeconds: integer("time_taken_seconds"),

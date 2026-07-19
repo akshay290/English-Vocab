@@ -1,6 +1,6 @@
 import { Router, type IRouter } from "express";
 import { db } from "@workspace/db";
-import { vocabularyItemsTable, userWordProgressTable, testsTable } from "@workspace/db";
+import { vocabularyItemsTable, userWordProgressTable, testsTable, testQuestionsTable } from "@workspace/db";
 import { eq, and, sql, inArray } from "drizzle-orm";
 import { requireAuth } from "../middlewares/auth.js";
 import { UpdateWordProgressBody, UpdateWordProgressParams, GetWordProgressQueryParams } from "@workspace/api-zod";
@@ -13,62 +13,81 @@ router.get("/progress", requireAuth, async (req, res) => {
   try {
     const userId = req.user!.userId;
 
-    const [wordStats, testStats, totalWords, categoryStats] = await Promise.all([
+    // All stats are based on test results only (not manual word-status updates)
+    const [testCountStats, wordsLearnedResult, wordsAttemptedResult, avgAccuracyResult, categoryStats] = await Promise.all([
       db
-        .select({
-          status: userWordProgressTable.status,
-          count: sql<number>`count(*)::int`,
-        })
-        .from(userWordProgressTable)
-        .where(eq(userWordProgressTable.userId, userId))
-        .groupBy(userWordProgressTable.status),
-
-      db
-        .select({
-          count: sql<number>`count(*)::int`,
-          avgScore: sql<number>`COALESCE(AVG(CASE WHEN score IS NOT NULL THEN score::float / total_questions * 100 END), 0)`,
-        })
+        .select({ count: sql<number>`count(*)::int` })
         .from(testsTable)
         .where(and(eq(testsTable.userId, userId), eq(testsTable.status, "completed"))),
 
-      db
-        .select({ total: sql<number>`count(*)::int` })
-        .from(vocabularyItemsTable)
-        .where(eq(vocabularyItemsTable.isActive, true)),
-
-      // Category progress: join progress with vocab
+      // Words learned = distinct vocab items answered correctly at least once in any completed test
       db.execute(sql`
-        SELECT v.category,
-               COUNT(DISTINCT uwp.vocab_item_id) FILTER (WHERE uwp.status = 'learned') AS learned,
-               COUNT(DISTINCT v.id) AS total
+        SELECT COUNT(DISTINCT tq.vocab_item_id)::int AS count
+        FROM test_questions tq
+        JOIN tests t ON tq.test_id = t.id
+        WHERE t.user_id = ${userId} AND t.status = 'completed' AND tq.is_correct = true
+      `),
+
+      // Words attempted = distinct vocab items seen in any completed test
+      db.execute(sql`
+        SELECT COUNT(DISTINCT tq.vocab_item_id)::int AS count
+        FROM test_questions tq
+        JOIN tests t ON tq.test_id = t.id
+        WHERE t.user_id = ${userId} AND t.status = 'completed'
+      `),
+
+      // Average accuracy = total correct / total attempted questions (2 decimal places)
+      db.execute(sql`
+        SELECT ROUND(
+          COALESCE(
+            COUNT(*) FILTER (WHERE tq.is_correct = true)::numeric /
+            NULLIF(COUNT(*) FILTER (WHERE tq.user_answer IS NOT NULL), 0) * 100,
+            0
+          ), 2
+        ) AS accuracy
+        FROM test_questions tq
+        JOIN tests t ON tq.test_id = t.id
+        WHERE t.user_id = ${userId} AND t.status = 'completed'
+      `),
+
+      // Category progress: learned = distinct words correct in tests; total = all active in category
+      db.execute(sql`
+        SELECT
+          v.category,
+          COUNT(DISTINCT tq.vocab_item_id) FILTER (
+            WHERE tq.is_correct = true AND t.user_id = ${userId} AND t.status = 'completed'
+          )::int AS learned,
+          COUNT(DISTINCT v.id)::int AS total
         FROM vocabulary_items v
-        LEFT JOIN user_word_progress uwp ON uwp.vocab_item_id = v.id AND uwp.user_id = ${userId}
+        LEFT JOIN test_questions tq ON tq.vocab_item_id = v.id
+        LEFT JOIN tests t ON tq.test_id = t.id
         WHERE v.is_active = true
         GROUP BY v.category
         ORDER BY v.category
       `),
     ]);
 
-    const statusMap = Object.fromEntries(wordStats.map((w) => [w.status, w.count]));
-    const wordsLearned = statusMap["learned"] ?? 0;
-    const wordsInProgress = (statusMap["learning"] ?? 0);
-    const weakWords = statusMap["weak"] ?? 0;
-
-    const testData = testStats[0];
+    type Row = { count: string | number };
+    const wordsLearned = Number((wordsLearnedResult.rows as Row[])[0]?.count ?? 0);
+    const wordsAttempted = Number((wordsAttemptedResult.rows as Row[])[0]?.count ?? 0);
+    // Words in progress = attempted but not yet answered correctly
+    const wordsInProgress = Math.max(0, wordsAttempted - wordsLearned);
+    const averageAccuracy = Number((avgAccuracyResult.rows as Array<{ accuracy: string | number }>)[0]?.accuracy ?? 0);
 
     res.json({
       wordsLearned,
+      wordsAttempted,
       wordsInProgress,
-      weakWords,
-      totalWordsAvailable: totalWords[0]?.total ?? 0,
-      testsAttempted: testData?.count ?? 0,
-      averageScore: Math.round(testData?.avgScore ?? 0),
-      streakDays: 0, // TODO: implement streak
+      weakWords: 0, // deprecated — using test-based stats now
+      totalWordsAvailable: wordsAttempted, // mastery is over attempted words
+      testsAttempted: testCountStats[0]?.count ?? 0,
+      averageScore: averageAccuracy,
+      streakDays: 0,
       lastActive: null,
-      categoryProgress: (categoryStats.rows as Array<{ category: string; learned: string; total: string }>).map((r) => ({
+      categoryProgress: (categoryStats.rows as Array<{ category: string; learned: string | number; total: string | number }>).map((r) => ({
         category: r.category,
-        learned: parseInt(r.learned) || 0,
-        total: parseInt(r.total) || 0,
+        learned: Number(r.learned) || 0,
+        total: Number(r.total) || 0,
       })),
     });
   } catch (err) {

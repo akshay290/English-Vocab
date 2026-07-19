@@ -247,13 +247,19 @@ router.post("/tests/:id/submit", requireAuth, async (req, res) => {
     const { answers, timeTakenSeconds } = parsed.data;
     const answerMap = new Map(answers.map((a) => [a.questionId, a.selectedOption]));
 
-    let score = 0;
+    let correctCount = 0;
+    let incorrectCount = 0;
     const updatedQuestions = [];
 
     for (const q of questions) {
       const userAnswer = answerMap.get(q.id) ?? null;
       const isCorrect = userAnswer !== null && userAnswer === q.correctAnswer;
-      if (isCorrect) score++;
+
+      if (isCorrect) {
+        correctCount++;
+      } else if (userAnswer !== null) {
+        incorrectCount++;
+      }
 
       await db
         .update(testQuestionsTable)
@@ -262,6 +268,13 @@ router.post("/tests/:id/submit", requireAuth, async (req, res) => {
 
       updatedQuestions.push({ ...q, userAnswer, isCorrect });
     }
+
+    // +2 correct, -0.5 incorrect, 0 unattempted — floored at 0
+    const rawScore = correctCount * 2 - incorrectCount * 0.5;
+    const score = Math.max(0, rawScore);
+    const unattemptedCount = test.totalQuestions - correctCount - incorrectCount;
+    const maxScore = test.totalQuestions * 2;
+    const percentage = maxScore > 0 ? Math.round((score / maxScore) * 100) : 0;
 
     const completedAt = new Date();
     await db
@@ -322,11 +335,13 @@ router.post("/tests/:id/submit", requireAuth, async (req, res) => {
 
     const vocabMap = new Map(vocabItems.map((v) => [v.id, v]));
 
-    const percentage = Math.round((score / test.totalQuestions) * 100);
-
     res.json({
       id: test.id,
       score,
+      maxScore,
+      correctCount,
+      incorrectCount,
+      unattemptedCount,
       totalQuestions: test.totalQuestions,
       percentage,
       timeTakenSeconds,
@@ -383,11 +398,22 @@ router.get("/tests/:id/result", requireAuth, async (req, res) => {
       .where(inArray(vocabularyItemsTable.id, vocabIds));
 
     const vocabMap = new Map(vocabItems.map((v) => [v.id, v]));
-    const percentage = Math.round(((test.score ?? 0) / test.totalQuestions) * 100);
+    // score = correctCount*2 - incorrectCount*0.5, maxScore = totalQuestions*2
+    const maxScore = test.totalQuestions * 2;
+    const percentage = maxScore > 0 ? Math.round(((test.score ?? 0) / maxScore) * 100) : 0;
+
+    // Recompute correct/incorrect counts from stored question data for result page
+    const correctCount = questions.filter((q) => q.isCorrect === true).length;
+    const incorrectCount = questions.filter((q) => q.isCorrect === false && q.userAnswer !== null).length;
+    const unattemptedCount = questions.filter((q) => q.userAnswer === null).length;
 
     res.json({
       id: test.id,
       score: test.score ?? 0,
+      maxScore,
+      correctCount,
+      incorrectCount,
+      unattemptedCount,
       totalQuestions: test.totalQuestions,
       percentage,
       timeTakenSeconds: test.timeTakenSeconds ?? 0,
@@ -412,11 +438,17 @@ router.get("/tests/:id/result", requireAuth, async (req, res) => {
 });
 
 function formatTestSummary(test: typeof testsTable.$inferSelect) {
+  const maxScore = test.totalQuestions * 2;
+  const percentage =
+    test.score != null && maxScore > 0
+      ? Math.round((test.score / maxScore) * 100)
+      : null;
   return {
     id: test.id,
     status: test.status,
     totalQuestions: test.totalQuestions,
     score: test.score,
+    percentage,
     timeDurationMinutes: test.timeDurationMinutes,
     timeTakenSeconds: test.timeTakenSeconds,
     config: test.config,

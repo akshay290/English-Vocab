@@ -156,7 +156,7 @@ export default function Dashboard() {
                       </div>
                       <div className="flex items-center gap-4">
                         <div className="text-right">
-                          <p className="font-bold text-lg">{test.score || 0}%</p>
+                          <p className="font-bold text-lg">{(test as any).percentage ?? 0}%</p>
                           <p className="text-xs text-muted-foreground">{test.totalQuestions} Questions</p>
                         </div>
                         {test.status === 'completed' && (

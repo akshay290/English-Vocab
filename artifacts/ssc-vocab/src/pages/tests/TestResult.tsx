@@ -31,9 +31,13 @@ export default function TestResult({ params }: { params: { id: string } }) {
     return `${m}m ${s}s`;
   };
 
-  const correctCount = result.questions.filter(q => q.isCorrect).length;
-  const incorrectCount = result.questions.filter(q => q.isCorrect === false).length;
-  const skippedCount = result.questions.filter(q => q.userAnswer === null).length;
+  // Use server-provided counts if available, otherwise compute locally
+  const correctCount = (result as any).correctCount ?? result.questions.filter(q => q.isCorrect).length;
+  const incorrectCount = (result as any).incorrectCount ?? result.questions.filter(q => q.isCorrect === false && q.userAnswer !== null).length;
+  const skippedCount = (result as any).unattemptedCount ?? result.questions.filter(q => q.userAnswer === null).length;
+  // Weighted score: +2 correct, -0.5 incorrect, 0 unattempted
+  const weightedScore = (result as any).score ?? (correctCount * 2 - incorrectCount * 0.5);
+  const maxScore = result.totalQuestions * 2;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl space-y-8">
@@ -50,12 +54,15 @@ export default function TestResult({ params }: { params: { id: string } }) {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="text-center md:text-left flex flex-col items-center md:items-start">
               <p className="text-muted-foreground font-medium mb-2 uppercase tracking-widest text-sm">Your Score</p>
-              <div className="flex items-baseline gap-2">
+              <div className="flex items-baseline gap-3">
                 <span className={`text-6xl md:text-8xl font-black ${result.percentage >= 80 ? 'text-secondary' : result.percentage >= 50 ? 'text-accent' : 'text-destructive'}`}>
                   {result.percentage}%
                 </span>
               </div>
-              <p className="mt-4 text-lg font-medium">
+              <p className="mt-2 text-sm text-muted-foreground">
+                {weightedScore.toFixed(1)} / {maxScore} marks &nbsp;·&nbsp; +2 correct &nbsp;·&nbsp; −0.5 wrong &nbsp;·&nbsp; 0 skipped
+              </p>
+              <p className="mt-3 text-lg font-medium">
                 {result.percentage >= 80 ? 'Outstanding performance! Keep it up.' : 
                  result.percentage >= 50 ? 'Good effort, but room for improvement.' : 
                  'Don\'t worry, keep practicing. You\'ll get better!'}
@@ -64,9 +71,9 @@ export default function TestResult({ params }: { params: { id: string } }) {
             
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-background p-4 rounded-xl shadow-sm border flex flex-col items-center justify-center text-center">
-                <Target className="h-6 w-6 text-primary mb-2" />
-                <span className="text-2xl font-bold">{result.totalQuestions}</span>
-                <span className="text-xs text-muted-foreground uppercase font-semibold">Total</span>
+                <Target className="h-6 w-6 text-muted-foreground mb-2" />
+                <span className="text-2xl font-bold">{skippedCount}</span>
+                <span className="text-xs text-muted-foreground uppercase font-semibold">Skipped</span>
               </div>
               <div className="bg-background p-4 rounded-xl shadow-sm border flex flex-col items-center justify-center text-center">
                 <CheckCircle2 className="h-6 w-6 text-secondary mb-2" />

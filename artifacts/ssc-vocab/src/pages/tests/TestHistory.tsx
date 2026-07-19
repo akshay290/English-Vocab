@@ -76,7 +76,7 @@ export default function TestHistory() {
                       <div className="text-center sm:text-right">
                         {isCompleted ? (
                           <>
-                            <div className="text-2xl font-black text-foreground">{test.score}%</div>
+                            <div className="text-2xl font-black text-foreground">{(test as any).percentage ?? '—'}%</div>
                             <div className="text-xs text-muted-foreground uppercase font-bold tracking-wider">Score</div>
                           </>
                         ) : (

@@ -33,7 +33,7 @@ export default function ActiveTest({ params }: { params: { id: string } }) {
   useEffect(() => {
     if (test && Object.keys(answers).length === 0) {
       if (test.status === 'completed') {
-        setLocation(`/tests/${testId}/result`);
+        setLocation(`/tests/${testId}/result`, { replace: true });
         return;
       }
       
@@ -157,7 +157,8 @@ export default function ActiveTest({ params }: { params: { id: string } }) {
           </CardHeader>
           <CardContent className="pl-10 pr-6 pb-8">
             <RadioGroup 
-              value={answers[currentQuestion.id]?.toString()} 
+              key={currentQuestion.id}
+              value={answers[currentQuestion.id] !== null && answers[currentQuestion.id] !== undefined ? answers[currentQuestion.id]!.toString() : ""}
               onValueChange={(val) => handleAnswerSelect(currentQuestion.id, parseInt(val))}
               className="space-y-3"
             >
@@ -211,13 +212,13 @@ export default function ActiveTest({ params }: { params: { id: string } }) {
           <AlertDialogHeader>
             <AlertDialogTitle>Are you sure you want to submit?</AlertDialogTitle>
             <AlertDialogDescription className="space-y-4">
-              <p>You are about to submit your test.</p>
+              <p>You are about to submit your test. Scoring: <strong>+2</strong> correct, <strong>−0.5</strong> incorrect, <strong>0</strong> unattempted.</p>
               
               {answeredCount < test.totalQuestions && (
-                <div className="bg-destructive/10 p-4 rounded-lg flex items-start gap-3 border border-destructive/20 text-destructive">
+                <div className="bg-amber-500/10 p-4 rounded-lg flex items-start gap-3 border border-amber-500/20 text-amber-700 dark:text-amber-400">
                   <AlertTriangle className="h-5 w-5 shrink-0 mt-0.5" />
                   <p className="font-medium text-sm">
-                    You have left {test.totalQuestions - answeredCount} question(s) unanswered. They will be marked as incorrect.
+                    You have left {test.totalQuestions - answeredCount} question(s) unattempted. These will score 0 marks (no negative marking for skipped questions).
                   </p>
                 </div>
               )}
