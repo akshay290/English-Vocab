@@ -35,7 +35,18 @@ Open a terminal in the project root folder (where `package.json` is) and run:
 pnpm install
 ```
 
-Wait for it to finish (may take a minute or two the first time).
+Wait for it to finish. You may see this prompt:
+
+```
+[ERR_PNPM_IGNORED_BUILDS] Ignored build scripts: esbuild@0.27.3
+Run "pnpm approve-builds" to pick which dependencies should be allowed to run scripts.
+```
+
+If so, run:
+```
+pnpm approve-builds
+```
+Select **esbuild** (press Space to select it), then confirm Yes. This is a one-time step.
 
 ---
 
