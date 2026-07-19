@@ -59,6 +59,14 @@ export default defineConfig({
     fs: {
       strict: true,
     },
+    // Proxy /api requests to the Express API server.
+    // On Replit the API runs on port 8080; locally on Windows it's the same.
+    proxy: {
+      '/api': {
+        target: `http://localhost:${process.env.API_PORT ?? '8080'}`,
+        changeOrigin: true,
+      },
+    },
   },
   preview: {
     port,
