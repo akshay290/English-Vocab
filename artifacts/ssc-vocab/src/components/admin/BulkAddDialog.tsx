@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
-import { useAdminBulkCreateVocabulary } from '@workspace/api-client-react';
+import { useAdminBulkCreateVocabulary, BulkCreateResult } from '@workspace/api-client-react';
 import {
   Dialog,
   DialogContent,
@@ -42,7 +42,7 @@ export function BulkAddDialog({ open, onOpenChange }: Props) {
   const bulkMutation = useAdminBulkCreateVocabulary();
   const [json, setJson] = useState('');
   const [parseError, setParseError] = useState('');
-  const [result, setResult] = useState<{ created: number; failed: number; errors?: string[] } | null>(null);
+  const [result, setResult] = useState<BulkCreateResult | null>(null);
 
   const handleSubmit = () => {
     setParseError('');
@@ -64,7 +64,7 @@ export function BulkAddDialog({ open, onOpenChange }: Props) {
     bulkMutation.mutate(
       { data: { items: items as any } },
       {
-        onSuccess: (res) => {
+        onSuccess: (res: BulkCreateResult) => {
           setResult(res);
           queryClient.invalidateQueries({ queryKey: ['/api/admin/vocabulary'] });
           queryClient.invalidateQueries({ queryKey: ['/api/vocabulary/browse/topics'] });
