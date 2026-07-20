@@ -55,6 +55,7 @@ export default function Dashboard() {
             <div className="space-y-1">
               <h3 className="text-3xl font-bold">{stats.wordsLearned}</h3>
               <p className="text-sm text-muted-foreground font-medium">Words Learned</p>
+              <p className="text-xs text-muted-foreground">correct 2+ times in tests</p>
             </div>
           </CardContent>
         </Card>
@@ -69,6 +70,7 @@ export default function Dashboard() {
             <div className="space-y-1">
               <h3 className="text-3xl font-bold">{Number(stats.averageScore).toFixed(2)}%</h3>
               <p className="text-sm text-muted-foreground font-medium">Avg. Accuracy</p>
+              <p className="text-xs text-muted-foreground">total correct ÷ total questions</p>
             </div>
           </CardContent>
         </Card>
@@ -83,6 +85,7 @@ export default function Dashboard() {
             <div className="space-y-1">
               <h3 className="text-3xl font-bold">{stats.testsAttempted}</h3>
               <p className="text-sm text-muted-foreground font-medium">Tests Taken</p>
+              <p className="text-xs text-muted-foreground">completed tests only</p>
             </div>
           </CardContent>
         </Card>
@@ -109,7 +112,7 @@ export default function Dashboard() {
           <Card>
             <CardHeader className="pb-3">
               <CardTitle className="text-lg">Daily Goal</CardTitle>
-              <CardDescription>Keep up your momentum</CardDescription>
+              <CardDescription>Answer 10 questions correctly today</CardDescription>
             </CardHeader>
             <CardContent>
               <div className="space-y-3">
@@ -121,7 +124,7 @@ export default function Dashboard() {
                 <p className="text-sm text-muted-foreground">
                   {stats.dailyGoalProgress >= 100 
                     ? "Great job! You've hit your goal for today."
-                    : "Learn a few more words or take a test to complete your daily goal."}
+                    : "Answer correct questions in tests to hit your daily goal of 10 correct answers."}
                 </p>
               </div>
             </CardContent>

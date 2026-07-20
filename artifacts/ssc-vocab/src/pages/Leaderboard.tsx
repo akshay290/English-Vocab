@@ -54,6 +54,13 @@ export default function Leaderboard() {
         <p className="text-muted-foreground mt-2 max-w-xl">
           Top performers across SSC Vocab Master. Keep learning and practicing to climb the ranks.
         </p>
+        <div className="mt-4 text-xs text-muted-foreground text-left max-w-lg border rounded-lg p-3 bg-muted/20 space-y-1">
+          <p className="font-semibold text-foreground mb-1">How rankings are calculated</p>
+          <p>• <strong>Words Learned</strong> — distinct words you answered correctly 2 or more times in tests (within the selected period)</p>
+          <p>• <strong>Accuracy</strong> — total correct answers ÷ total questions across all tests (to 2 decimal places)</p>
+          <p>• <strong>Rank</strong> — sorted by Words Learned first, then Accuracy as tiebreaker</p>
+          <p>• Stats come from completed tests only; manually marking "I know this word" does not affect rankings</p>
+        </div>
       </div>
 
       {/* Period Tabs */}

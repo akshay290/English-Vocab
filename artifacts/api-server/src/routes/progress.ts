@@ -14,7 +14,7 @@ router.get("/progress", requireAuth, async (req, res) => {
     const userId = req.user!.userId;
 
     // All stats are based on test results only (not manual word-status updates)
-    const [testCountStats, wordsLearnedResult, wordsAttemptedResult, avgAccuracyResult, categoryStats] = await Promise.all([
+    const [testCountStats, wordsLearnedResult, wordsAttemptedResult, wordsCorrectOnceResult, avgAccuracyResult, categoryStats] = await Promise.all([
       db
         .select({ count: sql<number>`count(*)::int` })
         .from(testsTable)
@@ -39,6 +39,14 @@ router.get("/progress", requireAuth, async (req, res) => {
         FROM test_questions tq
         JOIN tests t ON tq.test_id = t.id
         WHERE t.user_id = ${userId} AND t.status = 'completed'
+      `),
+
+      // Words correct at least once = distinct vocab items answered correctly at least once
+      db.execute(sql`
+        SELECT COUNT(DISTINCT tq.vocab_item_id)::int AS count
+        FROM test_questions tq
+        JOIN tests t ON tq.test_id = t.id
+        WHERE t.user_id = ${userId} AND t.status = 'completed' AND tq.is_correct = true
       `),
 
       // Average accuracy = total correct / total questions in completed tests (2 decimal places)
@@ -75,13 +83,15 @@ router.get("/progress", requireAuth, async (req, res) => {
     type Row = { count: string | number };
     const wordsLearned = Number((wordsLearnedResult.rows as Row[])[0]?.count ?? 0);
     const wordsAttempted = Number((wordsAttemptedResult.rows as Row[])[0]?.count ?? 0);
-    // Words in progress = attempted but not yet answered correctly
+    const wordsCorrectOnce = Number((wordsCorrectOnceResult.rows as Row[])[0]?.count ?? 0);
+    // Words in progress = attempted but not yet mastered (correct 2+ times)
     const wordsInProgress = Math.max(0, wordsAttempted - wordsLearned);
     const averageAccuracy = Number((avgAccuracyResult.rows as Array<{ accuracy: string | number }>)[0]?.accuracy ?? 0);
 
     res.json({
       wordsLearned,
       wordsAttempted,
+      wordsCorrectOnce,
       wordsInProgress,
       weakWords: 0, // deprecated — using test-based stats now
       totalWordsAvailable: wordsAttempted, // mastery is over attempted words

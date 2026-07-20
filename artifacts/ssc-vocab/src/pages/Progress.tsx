@@ -24,10 +24,11 @@ export default function ProgressPage() {
     );
   }
 
-  // Overall mastery = words answered correctly / words attempted in tests
+  // Overall mastery = words answered correctly at least once / words attempted
   const wordsAttempted = (progress as any).wordsAttempted ?? 0;
+  const wordsCorrectOnce = (progress as any).wordsCorrectOnce ?? 0;
   const overallProgress = wordsAttempted > 0
-    ? Math.round((progress.wordsLearned / wordsAttempted) * 100)
+    ? Math.round((wordsCorrectOnce / wordsAttempted) * 100)
     : 0;
 
   return (
@@ -63,7 +64,7 @@ export default function ProgressPage() {
             <div className="space-y-1">
               <h3 className="text-3xl font-bold">{Number(progress.averageScore ?? 0).toFixed(2)}%</h3>
               <p className="text-sm text-muted-foreground font-medium">Avg. Accuracy</p>
-              <p className="text-xs text-muted-foreground">correct / total questions</p>
+              <p className="text-xs text-muted-foreground">total correct ÷ total questions</p>
             </div>
           </CardContent>
         </Card>
@@ -78,6 +79,7 @@ export default function ProgressPage() {
             <div className="space-y-1">
               <h3 className="text-3xl font-bold">{progress.wordsInProgress}</h3>
               <p className="text-sm text-muted-foreground font-medium">In Progress</p>
+              <p className="text-xs text-muted-foreground">seen in tests, not yet mastered</p>
             </div>
           </CardContent>
         </Card>
@@ -92,6 +94,7 @@ export default function ProgressPage() {
             <div className="space-y-1">
               <h3 className="text-3xl font-bold">{progress.testsAttempted}</h3>
               <p className="text-sm text-muted-foreground font-medium">Tests Taken</p>
+              <p className="text-xs text-muted-foreground">completed tests only</p>
             </div>
           </CardContent>
         </Card>
@@ -122,8 +125,17 @@ export default function ProgressPage() {
             <p className="text-muted-foreground font-medium">
               {wordsAttempted === 0
                 ? "Take a test to start tracking your mastery."
-                : `You answered ${progress.wordsLearned} out of ${wordsAttempted} attempted words correctly.`}
+                : `You answered ${wordsCorrectOnce} out of ${wordsAttempted} attempted words correctly.`}
             </p>
+            {wordsAttempted > 0 && (
+              <div className="mt-4 text-xs text-muted-foreground space-y-1 text-left w-full max-w-xs border rounded-lg p-3 bg-muted/20">
+                <p className="font-semibold text-foreground mb-2">How this is calculated</p>
+                <p>• <strong>Overall Mastery %</strong> = words you got right (at least once) ÷ total words attempted in tests</p>
+                <p>• <strong>Words Mastered</strong> = words you answered correctly <em>2 or more times</em> across all tests</p>
+                <p>• <strong>In Progress</strong> = words you've seen in tests but haven't mastered yet (less than 2 correct answers)</p>
+                <p>• <strong>Avg. Accuracy</strong> = total correct answers ÷ total questions across all tests</p>
+              </div>
+            )}
           </CardContent>
         </Card>
 
