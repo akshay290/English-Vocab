@@ -16,6 +16,7 @@ export function Navbar() {
         { href: '/vocabulary', label: 'Vocabulary' },
         { href: '/tests', label: 'Tests' },
         { href: '/progress', label: 'Progress' },
+        { href: '/leaderboard', label: 'Leaderboard' },
         { href: '/revision', label: 'Revision' },
       ]
     : [

@@ -20,12 +20,17 @@ router.get("/progress", requireAuth, async (req, res) => {
         .from(testsTable)
         .where(and(eq(testsTable.userId, userId), eq(testsTable.status, "completed"))),
 
-      // Words learned = distinct vocab items answered correctly at least once in any completed test
+      // Words mastered = distinct vocab items answered correctly 2+ times across completed tests
       db.execute(sql`
-        SELECT COUNT(DISTINCT tq.vocab_item_id)::int AS count
-        FROM test_questions tq
-        JOIN tests t ON tq.test_id = t.id
-        WHERE t.user_id = ${userId} AND t.status = 'completed' AND tq.is_correct = true
+        SELECT COUNT(DISTINCT vocab_item_id)::int AS count
+        FROM (
+          SELECT tq.vocab_item_id
+          FROM test_questions tq
+          JOIN tests t ON tq.test_id = t.id
+          WHERE t.user_id = ${userId} AND t.status = 'completed' AND tq.is_correct = true
+          GROUP BY tq.vocab_item_id
+          HAVING COUNT(*) >= 2
+        ) mastered
       `),
 
       // Words attempted = distinct vocab items seen in any completed test
@@ -36,12 +41,12 @@ router.get("/progress", requireAuth, async (req, res) => {
         WHERE t.user_id = ${userId} AND t.status = 'completed'
       `),
 
-      // Average accuracy = total correct / total attempted questions (2 decimal places)
+      // Average accuracy = total correct / total questions in completed tests (2 decimal places)
       db.execute(sql`
         SELECT ROUND(
           COALESCE(
             COUNT(*) FILTER (WHERE tq.is_correct = true)::numeric /
-            NULLIF(COUNT(*) FILTER (WHERE tq.user_answer IS NOT NULL), 0) * 100,
+            NULLIF(COUNT(*), 0) * 100,
             0
           ), 2
         ) AS accuracy
@@ -92,6 +97,42 @@ router.get("/progress", requireAuth, async (req, res) => {
     });
   } catch (err) {
     req.log.error({ err }, "Error getting user progress");
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+// GET /progress/words/:wordId — single word status (must come before generic /words route)
+router.get("/progress/words/:wordId", requireAuth, async (req, res) => {
+  try {
+    const wordId = Number(req.params.wordId);
+    if (isNaN(wordId)) {
+      res.status(400).json({ error: "Invalid wordId" });
+      return;
+    }
+
+    const userId = req.user!.userId;
+    const [progress] = await db
+      .select()
+      .from(userWordProgressTable)
+      .where(and(eq(userWordProgressTable.userId, userId), eq(userWordProgressTable.vocabItemId, wordId)))
+      .limit(1);
+
+    if (!progress) {
+      res.json({ status: "new", vocabItemId: wordId, timesSeen: 0, timesCorrect: 0, lastSeen: null, nextReview: null });
+      return;
+    }
+
+    res.json({
+      id: progress.id,
+      vocabItemId: progress.vocabItemId,
+      status: progress.status,
+      timesSeen: progress.timesSeen,
+      timesCorrect: progress.timesCorrect,
+      lastSeen: progress.lastSeen?.toISOString() ?? null,
+      nextReview: progress.nextReview?.toISOString() ?? null,
+    });
+  } catch (err) {
+    req.log.error({ err }, "Error getting word progress");
     res.status(500).json({ error: "Internal server error" });
   }
 });

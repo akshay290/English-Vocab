@@ -9,12 +9,12 @@ args = ["pnpm", "store", "prune"]
 env = { "CI" = "true" }
 
 [[ports]]
-localPort = 26172
-externalPort = 80
-
-[[ports]]
 localPort = 8080
 externalPort = 8080
+
+[[ports]]
+localPort = 26172
+externalPort = 80
 
 [workflows]
 runButton = "Project"

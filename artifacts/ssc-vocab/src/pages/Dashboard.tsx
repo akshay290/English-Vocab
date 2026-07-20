@@ -67,8 +67,8 @@ export default function Dashboard() {
               </div>
             </div>
             <div className="space-y-1">
-              <h3 className="text-3xl font-bold">{Math.round(stats.averageScore)}%</h3>
-              <p className="text-sm text-muted-foreground font-medium">Avg. Score</p>
+              <h3 className="text-3xl font-bold">{Number(stats.averageScore).toFixed(2)}%</h3>
+              <p className="text-sm text-muted-foreground font-medium">Avg. Accuracy</p>
             </div>
           </CardContent>
         </Card>

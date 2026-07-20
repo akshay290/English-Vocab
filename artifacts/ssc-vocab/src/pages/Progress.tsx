@@ -1,7 +1,7 @@
 import { useGetUserProgress } from '@workspace/api-client-react';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { BrainCircuit, BookA, Flame, Target, Trophy } from 'lucide-react';
+import { BrainCircuit, BookA, Activity, Target, Trophy } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { formatCategory, getCategoryColor } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
@@ -47,7 +47,8 @@ export default function ProgressPage() {
             </div>
             <div className="space-y-1">
               <h3 className="text-3xl font-bold">{progress.wordsLearned}</h3>
-              <p className="text-sm text-muted-foreground font-medium">Words Learned</p>
+              <p className="text-sm text-muted-foreground font-medium">Words Mastered</p>
+              <p className="text-xs text-muted-foreground">answered correctly 2+ times in tests</p>
             </div>
           </CardContent>
         </Card>
@@ -55,13 +56,14 @@ export default function ProgressPage() {
         <Card className="hover-elevate">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-4">
-              <div className="h-10 w-10 bg-amber-500/10 text-amber-500 rounded-lg flex items-center justify-center">
-                <Flame className="h-5 w-5" />
+              <div className="h-10 w-10 bg-blue-500/10 text-blue-500 rounded-lg flex items-center justify-center">
+                <Activity className="h-5 w-5" />
               </div>
             </div>
             <div className="space-y-1">
-              <h3 className="text-3xl font-bold">{progress.streakDays} Days</h3>
-              <p className="text-sm text-muted-foreground font-medium">Current Streak</p>
+              <h3 className="text-3xl font-bold">{Number(progress.averageScore ?? 0).toFixed(2)}%</h3>
+              <p className="text-sm text-muted-foreground font-medium">Avg. Accuracy</p>
+              <p className="text-xs text-muted-foreground">correct / total questions</p>
             </div>
           </CardContent>
         </Card>

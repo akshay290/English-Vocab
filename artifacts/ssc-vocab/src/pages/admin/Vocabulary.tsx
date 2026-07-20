@@ -1,13 +1,13 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
-import { useAdminListVocabulary, useDeleteVocabulary, VocabularyItem } from '@workspace/api-client-react';
+import { useAdminListVocabulary, useDeleteVocabulary, useAdminBulkCreateVocabulary, VocabularyItem } from '@workspace/api-client-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Search, Plus, Edit, Trash2 } from 'lucide-react';
+import { Search, Plus, Edit, Trash2, Upload } from 'lucide-react';
 import { formatCategory, getDifficultyColor } from '@/lib/utils';
 import { VocabularyFormDialog } from '@/components/admin/VocabularyFormDialog';
 import { BulkAddDialog } from '@/components/admin/BulkAddDialog';
@@ -31,15 +31,15 @@ export default function AdminVocabulary() {
   const [bulkOpen, setBulkOpen] = useState(false);
   const [editItem, setEditItem] = useState<VocabularyItem | null>(null);
   const [deleteId, setDeleteId] = useState<number | null>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
   const deleteMutation = useDeleteVocabulary();
+  const bulkMutation = useAdminBulkCreateVocabulary();
 
-  // Debounce via a simple timeout approach
   const handleSearchChange = (val: string) => {
     setSearch(val);
-    // immediate update; real debounce via form submit
   };
 
   const handleSearch = (e: React.FormEvent) => {
@@ -72,6 +72,50 @@ export default function AdminVocabulary() {
     );
   };
 
+  const handleJsonFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const content = event.target?.result as string;
+      let items: unknown;
+      try {
+        items = JSON.parse(content);
+      } catch {
+        toast({ variant: 'destructive', title: 'Invalid JSON file', description: 'The file could not be parsed as JSON.' });
+        return;
+      }
+
+      if (!Array.isArray(items)) {
+        toast({ variant: 'destructive', title: 'Wrong format', description: 'JSON must be an array: [ { word, meaning, category, difficulty, ... } ]' });
+        return;
+      }
+
+      toast({ title: `Uploading ${items.length} words…` });
+
+      bulkMutation.mutate(
+        { data: { items: items as any } },
+        {
+          onSuccess: (res) => {
+            toast({
+              title: `Upload complete`,
+              description: `${res.created} words added${res.failed > 0 ? `, ${res.failed} failed` : ''}.`,
+            });
+            queryClient.invalidateQueries({ queryKey: ['/api/admin/vocabulary'] });
+            queryClient.invalidateQueries({ queryKey: ['/api/vocabulary/browse/topics'] });
+          },
+          onError: (err: any) => {
+            toast({ variant: 'destructive', title: 'Upload failed', description: err?.data?.error ?? 'Something went wrong' });
+          },
+        }
+      );
+    };
+    reader.readAsText(file);
+    // reset input so the same file can be re-uploaded
+    e.target.value = '';
+  };
+
   return (
     <div className="space-y-6">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -79,13 +123,48 @@ export default function AdminVocabulary() {
           <h1 className="text-3xl font-bold tracking-tight">Vocabulary Management</h1>
           <p className="text-muted-foreground mt-1">Add, edit, or remove words</p>
         </div>
-        <div className="flex gap-2">
-          <Button variant="outline" onClick={() => setBulkOpen(true)}>Bulk Add</Button>
+        <div className="flex flex-wrap gap-2">
+          {/* Hidden file input for JSON upload */}
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept=".json,application/json"
+            className="hidden"
+            onChange={handleJsonFileUpload}
+          />
+          <Button
+            variant="outline"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={bulkMutation.isPending}
+          >
+            <Upload className="h-4 w-4 mr-2" />
+            {bulkMutation.isPending ? 'Uploading…' : 'Upload JSON'}
+          </Button>
+          <Button variant="outline" onClick={() => setBulkOpen(true)}>Bulk Add (Paste)</Button>
           <Button onClick={() => { setEditItem(null); setAddOpen(true); }}>
-            <Plus className="h-4 w-4 mr-2" /> Add New Word
+            <Plus className="h-4 w-4 mr-2" /> Add Word
           </Button>
         </div>
       </div>
+
+      {/* JSON format hint */}
+      <Card className="bg-muted/40 border-dashed">
+        <CardContent className="py-3 px-4">
+          <p className="text-xs text-muted-foreground">
+            <strong>Upload JSON format:</strong>{' '}
+            <code className="bg-background px-1 rounded">
+              {'[{"word":"...","meaning":"...","category":"important_vocabulary","difficulty":"medium","hindiMeaning":"...","synonyms":[],"antonyms":[],"examRefs":["SSC CGL"]}]'}
+            </code>
+            {' '}— Categories: <code className="bg-background px-1 rounded">important_vocabulary</code>,{' '}
+            <code className="bg-background px-1 rounded">idioms_phrases</code>,{' '}
+            <code className="bg-background px-1 rounded">synonyms</code>,{' '}
+            <code className="bg-background px-1 rounded">antonyms</code>,{' '}
+            <code className="bg-background px-1 rounded">homonyms</code>,{' '}
+            <code className="bg-background px-1 rounded">phrasal_verbs</code>,{' '}
+            <code className="bg-background px-1 rounded">fixed_prepositions</code>
+          </p>
+        </CardContent>
+      </Card>
 
       <Card>
         <CardHeader className="py-4 border-b">
@@ -201,7 +280,7 @@ export default function AdminVocabulary() {
         editItem={editItem}
       />
 
-      {/* Bulk Add dialog */}
+      {/* Bulk Add dialog (paste JSON) */}
       <BulkAddDialog open={bulkOpen} onOpenChange={setBulkOpen} />
 
       {/* Delete confirmation */}

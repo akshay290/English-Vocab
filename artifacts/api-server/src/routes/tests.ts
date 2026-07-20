@@ -1,6 +1,6 @@
 import { Router, type IRouter } from "express";
 import { db } from "@workspace/db";
-import { vocabularyItemsTable, testsTable, testQuestionsTable } from "@workspace/db";
+import { vocabularyItemsTable, testsTable, testQuestionsTable, userWordProgressTable } from "@workspace/db";
 import { eq, and, inArray, sql } from "drizzle-orm";
 import { requireAuth } from "../middlewares/auth.js";
 import {
@@ -26,53 +26,92 @@ router.post("/tests", requireAuth, async (req, res) => {
 
     const config = parsed.data;
     const { categories, alphabets, difficulty, totalQuestions, timeDurationMinutes, questionMode } = config;
+    const userId = req.user!.userId;
 
-    // Build query conditions
-    const conditions: ReturnType<typeof eq>[] = [
-      eq(vocabularyItemsTable.isActive, true) as ReturnType<typeof eq>,
-    ];
+    // ── 30 : 70 split ────────────────────────────────────────────────────────
+    // Known   = answered correctly ≥1× in any test (times_correct >= 1) or manually marked 'learned'
+    // Unknown = no progress row, never answered correctly, or marked 'weak'
+    const knownQuota   = Math.round(totalQuestions * 0.30);
+    const unknownQuota = totalQuestions - knownQuota;
+    const extraPool    = Math.max(totalQuestions * 3, 30);
 
-    if (categories && categories.length > 0) {
-      conditions.push(inArray(vocabularyItemsTable.category, categories) as ReturnType<typeof eq>);
-    }
-    if (alphabets && alphabets.length > 0) {
-      conditions.push(
-        inArray(vocabularyItemsTable.alphabet, alphabets.map((a) => a.toLowerCase())) as ReturnType<typeof eq>
-      );
-    }
-    if (difficulty) {
-      conditions.push(eq(vocabularyItemsTable.difficulty, difficulty) as ReturnType<typeof eq>);
-    }
+    const categorySql  = categories && categories.length > 0
+      ? sql`AND v.category = ANY(${categories})`
+      : sql``;
+    const alphabetSql  = alphabets && alphabets.length > 0
+      ? sql`AND v.alphabet = ANY(${alphabets.map((a) => a.toLowerCase())})`
+      : sql``;
+    const difficultySql = difficulty
+      ? sql`AND v.difficulty = ${difficulty}`
+      : sql``;
 
-    // Fetch pool of vocab items (fetch more than needed for distractors)
-    const poolSize = Math.max(totalQuestions * 4, 50);
-    const vocabPool = await db
-      .select()
-      .from(vocabularyItemsTable)
-      .where(and(...conditions))
-      .orderBy(sql`RANDOM()`)
-      .limit(poolSize);
+    // Known words — user has progress showing at least 1 correct answer
+    const knownWords = await db.execute(sql`
+      SELECT v.*
+      FROM vocabulary_items v
+      JOIN user_word_progress uwp
+        ON uwp.vocab_item_id = v.id AND uwp.user_id = ${userId}
+      WHERE v.is_active = true
+        ${categorySql}
+        ${alphabetSql}
+        ${difficultySql}
+        AND (uwp.times_correct >= 1 OR uwp.status = 'learned')
+      ORDER BY RANDOM()
+      LIMIT ${knownQuota + extraPool}
+    `);
 
-    if (vocabPool.length < totalQuestions) {
+    // Unknown words — no progress row, or never answered correctly, or marked weak
+    const unknownWords = await db.execute(sql`
+      SELECT v.*
+      FROM vocabulary_items v
+      LEFT JOIN user_word_progress uwp
+        ON uwp.vocab_item_id = v.id AND uwp.user_id = ${userId}
+      WHERE v.is_active = true
+        ${categorySql}
+        ${alphabetSql}
+        ${difficultySql}
+        AND (uwp.id IS NULL OR uwp.times_correct = 0 OR uwp.status = 'weak')
+      ORDER BY RANDOM()
+      LIMIT ${unknownQuota + extraPool}
+    `);
+
+    type RawVocab = {
+      id: number; word: string; meaning: string; hindi_meaning: string | null;
+      category: string; difficulty: string; alphabet: string; is_active: boolean;
+      example_sentence: string | null; synonyms: string[] | null; antonyms: string[] | null;
+      exam_refs: string[] | null; topics: string[] | null; created_at: Date; updated_at: Date;
+    };
+
+    const knownPool   = knownWords.rows  as RawVocab[];
+    const unknownPool = unknownWords.rows as RawVocab[];
+
+    // Fill quotas; compensate from the other bucket if one is short
+    const actualKnown   = knownPool.slice(0, knownQuota);
+    const stillNeeded   = totalQuestions - actualKnown.length;
+    const actualUnknown = unknownPool.slice(0, stillNeeded);
+    let questionWords   = [...actualKnown, ...actualUnknown];
+
+    if (questionWords.length < totalQuestions) {
       res.status(400).json({
-        error: `Not enough words match your criteria. Found ${vocabPool.length}, need ${totalQuestions}.`,
+        error: `Not enough words match your criteria. Found ${questionWords.length}, need ${totalQuestions}.`,
       });
       return;
     }
 
-    // Pick question words
-    let questionWords = vocabPool.slice(0, totalQuestions);
-
-    // If alphabet_wise, sort by alphabet
+    // Sort by alphabet if requested
     if (questionMode === "alphabet_wise") {
       questionWords = [...questionWords].sort((a, b) => a.alphabet.localeCompare(b.alphabet));
     }
+
+    // Distractor pool = union of both pools minus selected question words
+    const selectedIds   = new Set(questionWords.map((w) => w.id));
+    const distractorPool = [...knownPool, ...unknownPool].filter((v) => !selectedIds.has(v.id));
 
     // Create test
     const [test] = await db
       .insert(testsTable)
       .values({
-        userId: req.user!.userId,
+        userId,
         config: config as object,
         status: "in_progress",
         totalQuestions,
@@ -82,9 +121,7 @@ router.post("/tests", requireAuth, async (req, res) => {
 
     // Generate MCQ questions
     const questions = questionWords.map((word, idx) => {
-      // Pick 3 distractors from the rest of the pool
-      const distractors = vocabPool
-        .filter((v) => v.id !== word.id)
+      const distractors = [...distractorPool]
         .sort(() => Math.random() - 0.5)
         .slice(0, 3)
         .map((v) => v.meaning);

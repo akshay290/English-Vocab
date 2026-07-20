@@ -1,8 +1,9 @@
 import { useGetVocabularyItem, useUpdateWordProgress } from '@workspace/api-client-react';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, BookOpen, Volume2, CheckCircle2, Languages, List, Tags, History } from 'lucide-react';
+import { ArrowLeft, BookOpen, Volume2, CheckCircle2, Languages, List, Tags, History, XCircle } from 'lucide-react';
 import { Link } from 'wouter';
 import { getCategoryColor, getDifficultyColor, formatCategory, DIFFICULTY_LABELS } from '@/lib/utils';
 import { useAuth } from '@/contexts/AuthContext';
@@ -15,15 +16,55 @@ export default function WordDetail({ params }: { params: { id: string } }) {
   const { isAuthenticated } = useAuth();
   const { toast } = useToast();
   const markProgressMutation = useUpdateWordProgress();
+  const queryClient = useQueryClient();
+
+  // Fetch current word progress status
+  const { data: wordStatus } = useQuery({
+    queryKey: ['/api/progress/words', wordId],
+    queryFn: async () => {
+      const token = localStorage.getItem('auth_token');
+      const res = await fetch(`/api/progress/words/${wordId}`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+      });
+      if (!res.ok) return { status: 'new' };
+      return res.json() as Promise<{ status: string; vocabItemId?: number }>;
+    },
+    enabled: isAuthenticated && !isNaN(wordId),
+  });
+
+  const isLearned = wordStatus?.status === 'learned';
 
   if (isLoading) return <WordDetailSkeleton />;
   if (!word) return <div className="text-center py-20 text-xl font-semibold">Word not found</div>;
 
   const handleMarkLearned = () => {
     markProgressMutation.mutate(
-      { wordId, data: { status: 'learned' } }
+      { wordId, data: { status: 'learned' } },
+      {
+        onSuccess: () => {
+          queryClient.invalidateQueries({ queryKey: ['/api/progress/words', wordId] });
+          toast({ title: '✓ Marked as learned', description: 'This word has been added to your learned list.' });
+        },
+        onError: () => {
+          toast({ variant: 'destructive', title: 'Could not update word status' });
+        },
+      }
     );
-    toast({ title: "Marked as learned", description: "This word has been added to your learned list." });
+  };
+
+  const handleMarkUnknown = () => {
+    markProgressMutation.mutate(
+      { wordId, data: { status: 'new' } },
+      {
+        onSuccess: () => {
+          queryClient.invalidateQueries({ queryKey: ['/api/progress/words', wordId] });
+          toast({ title: 'Removed from learned list', description: 'You can re-learn this word anytime.' });
+        },
+        onError: () => {
+          toast({ variant: 'destructive', title: 'Could not update word status' });
+        },
+      }
+    );
   };
 
   const playAudio = () => {
@@ -135,18 +176,42 @@ export default function WordDetail({ params }: { params: { id: string } }) {
 
         <div className="space-y-6">
           {isAuthenticated ? (
-            <Card className="border-primary/20 shadow-md">
+            <Card className={`shadow-md ${isLearned ? 'border-emerald-500/40 bg-emerald-50/30 dark:bg-emerald-950/10' : 'border-primary/20'}`}>
               <CardContent className="p-6 text-center space-y-4">
-                <div className="mx-auto w-12 h-12 bg-primary/10 text-primary rounded-full flex items-center justify-center mb-2">
-                  <CheckCircle2 className="h-6 w-6" />
+                <div className={`mx-auto w-12 h-12 rounded-full flex items-center justify-center mb-2 ${isLearned ? 'bg-emerald-500/10 text-emerald-600' : 'bg-primary/10 text-primary'}`}>
+                  {isLearned ? <CheckCircle2 className="h-6 w-6" /> : <CheckCircle2 className="h-6 w-6" />}
                 </div>
-                <div>
-                  <h3 className="font-bold text-lg">Mark as Learned</h3>
-                  <p className="text-sm text-muted-foreground mt-1">Add this to your learned vocabulary to track progress.</p>
-                </div>
-                <Button className="w-full font-bold" onClick={handleMarkLearned}>
-                  I know this word
-                </Button>
+                {isLearned ? (
+                  <>
+                    <div>
+                      <h3 className="font-bold text-lg text-emerald-700 dark:text-emerald-400">Word Learned ✓</h3>
+                      <p className="text-sm text-muted-foreground mt-1">You've marked this word as learned.</p>
+                    </div>
+                    <Button
+                      variant="outline"
+                      className="w-full text-muted-foreground border-dashed hover:border-destructive hover:text-destructive"
+                      onClick={handleMarkUnknown}
+                      disabled={markProgressMutation.isPending}
+                    >
+                      <XCircle className="h-4 w-4 mr-2" />
+                      I don't know this word
+                    </Button>
+                  </>
+                ) : (
+                  <>
+                    <div>
+                      <h3 className="font-bold text-lg">Mark as Learned</h3>
+                      <p className="text-sm text-muted-foreground mt-1">Add this to your learned vocabulary to track progress.</p>
+                    </div>
+                    <Button
+                      className="w-full font-bold"
+                      onClick={handleMarkLearned}
+                      disabled={markProgressMutation.isPending}
+                    >
+                      {markProgressMutation.isPending ? 'Saving…' : 'I know this word'}
+                    </Button>
+                  </>
+                )}
               </CardContent>
             </Card>
           ) : (
