@@ -36,7 +36,9 @@ A full-stack vocabulary preparation web app for SSC CGL, CHSL, CPO, MTS, and Ban
 - **Overall Mastery**: words answered correctly at least once ÷ words attempted in tests × 100.
 - **Average Accuracy**: total correct answers ÷ total attempted (non-null) answers × 100, to 2 decimal places.
 - **Back navigation**: Completed-test redirects use `{ replace: true }` so the browser back button skips the in-progress test URL.
-- **API server** does not use `--env-file` — `DATABASE_URL` and `SESSION_SECRET` are runtime-managed by Replit.
+- **API server** reads `../../.env` via `--env-file-if-exists` at startup. On Replit, a `.env` at workspace root is generated with `DATABASE_URL` and `SESSION_SECRET` from the environment. Do not commit this file.
+- **Delete bug fix**: `test_questions` has no `onDelete cascade` on `vocab_item_id`. The delete route explicitly removes orphan test_questions before deleting the word.
+- **Delete All Words** endpoint: `DELETE /api/admin/vocabulary` — clears test_questions + user_word_progress + vocabulary_items in that order.
 
 ## Gotchas
 

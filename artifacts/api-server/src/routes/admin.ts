@@ -219,6 +219,24 @@ router.get("/admin/vocabulary", requireAdmin, async (req, res) => {
   }
 });
 
+// DELETE /admin/vocabulary (delete ALL words)
+router.delete("/admin/vocabulary", requireAdmin, async (req, res) => {
+  try {
+    // Remove all test_questions first (no onDelete cascade on vocab_item_id)
+    await db.execute(sql`DELETE FROM test_questions`);
+    // Remove all word-progress entries (cascade handles this, but be explicit)
+    await db.execute(sql`DELETE FROM user_word_progress`);
+    // Delete all vocabulary items
+    const result = await db.execute(
+      sql`DELETE FROM vocabulary_items RETURNING id`
+    );
+    res.json({ success: true, deleted: result.rows.length });
+  } catch (err) {
+    req.log.error({ err }, "Error deleting all vocabulary");
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 // POST /admin/vocabulary/bulk
 router.post("/admin/vocabulary/bulk", requireAdmin, async (req, res) => {
   try {

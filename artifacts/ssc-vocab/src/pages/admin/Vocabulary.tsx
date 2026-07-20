@@ -1,17 +1,18 @@
 import { useState, useRef } from 'react';
 import { useQueryClient } from '@tanstack/react-query';
-import { useAdminListVocabulary, useDeleteVocabulary, useAdminBulkCreateVocabulary, VocabularyItem } from '@workspace/api-client-react';
+import { useAdminListVocabulary, useDeleteVocabulary, useAdminBulkCreateVocabulary, VocabularyItem, customFetch } from '@workspace/api-client-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Search, Plus, Edit, Trash2, Upload } from 'lucide-react';
+import { Search, Plus, Edit, Trash2, Upload, Trash } from 'lucide-react';
 import { formatCategory, getDifficultyColor } from '@/lib/utils';
 import { VocabularyFormDialog } from '@/components/admin/VocabularyFormDialog';
 import { BulkAddDialog } from '@/components/admin/BulkAddDialog';
 import { useToast } from '@/hooks/use-toast';
+import { useMutation } from '@tanstack/react-query';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -35,8 +36,23 @@ export default function AdminVocabulary() {
   const { toast } = useToast();
   const queryClient = useQueryClient();
 
+  const [deleteAllOpen, setDeleteAllOpen] = useState(false);
   const deleteMutation = useDeleteVocabulary();
   const bulkMutation = useAdminBulkCreateVocabulary();
+
+  const deleteAllMutation = useMutation({
+    mutationFn: () => customFetch('/api/admin/vocabulary', { method: 'DELETE' }),
+    onSuccess: () => {
+      toast({ title: 'All words deleted', description: 'The word database has been cleared.' });
+      queryClient.invalidateQueries({ queryKey: ['/api/admin/vocabulary'] });
+      queryClient.invalidateQueries({ queryKey: ['/api/vocabulary/browse/topics'] });
+      setDeleteAllOpen(false);
+    },
+    onError: () => {
+      toast({ variant: 'destructive', title: 'Failed to delete all words' });
+      setDeleteAllOpen(false);
+    },
+  });
 
   const handleSearchChange = (val: string) => {
     setSearch(val);
@@ -143,6 +159,14 @@ export default function AdminVocabulary() {
           <Button variant="outline" onClick={() => setBulkOpen(true)}>Bulk Add (Paste)</Button>
           <Button onClick={() => { setEditItem(null); setAddOpen(true); }}>
             <Plus className="h-4 w-4 mr-2" /> Add Word
+          </Button>
+          <Button
+            variant="destructive"
+            onClick={() => setDeleteAllOpen(true)}
+            disabled={deleteAllMutation.isPending}
+          >
+            <Trash className="h-4 w-4 mr-2" />
+            Delete All Words
           </Button>
         </div>
       </div>
@@ -283,7 +307,30 @@ export default function AdminVocabulary() {
       {/* Bulk Add dialog (paste JSON) */}
       <BulkAddDialog open={bulkOpen} onOpenChange={setBulkOpen} />
 
-      {/* Delete confirmation */}
+      {/* Delete All confirmation */}
+      <AlertDialog open={deleteAllOpen} onOpenChange={(o) => { if (!o) setDeleteAllOpen(false); }}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete ALL words?</AlertDialogTitle>
+            <AlertDialogDescription>
+              This will permanently delete every word in the database, including all test history
+              referencing them. This cannot be undone.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              className="bg-destructive text-destructive-foreground hover:bg-destructive/90"
+              onClick={() => deleteAllMutation.mutate()}
+              disabled={deleteAllMutation.isPending}
+            >
+              {deleteAllMutation.isPending ? 'Deleting…' : 'Delete All'}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      {/* Delete single word confirmation */}
       <AlertDialog open={deleteId != null} onOpenChange={(o) => { if (!o) setDeleteId(null); }}>
         <AlertDialogContent>
           <AlertDialogHeader>

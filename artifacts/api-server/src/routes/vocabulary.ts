@@ -277,6 +277,12 @@ router.delete("/vocabulary/:id", requireAdmin, async (req, res) => {
       return;
     }
 
+    // Remove test_questions referencing this word first to avoid FK constraint
+    // (test_questions.vocab_item_id has no onDelete cascade)
+    await db.execute(
+      sql`DELETE FROM test_questions WHERE vocab_item_id = ${parsed.data.id}`
+    );
+
     const [item] = await db
       .delete(vocabularyItemsTable)
       .where(eq(vocabularyItemsTable.id, parsed.data.id))
