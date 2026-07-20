@@ -35,11 +35,13 @@ router.post("/tests", requireAuth, async (req, res) => {
     const unknownQuota = totalQuestions - knownQuota;
     const extraPool    = Math.max(totalQuestions * 3, 30);
 
+    // Use IN (...) with individual bindings — passing a JS array to ANY() causes
+    // "malformed array literal" because Drizzle serialises the array as a string
     const categorySql  = categories && categories.length > 0
-      ? sql`AND v.category = ANY(${categories})`
+      ? sql`AND v.category IN (${sql.join(categories.map((c) => sql`${c}`), sql`, `)})`
       : sql``;
     const alphabetSql  = alphabets && alphabets.length > 0
-      ? sql`AND v.alphabet = ANY(${alphabets.map((a) => a.toLowerCase())})`
+      ? sql`AND v.alphabet IN (${sql.join(alphabets.map((a) => sql`${a.toLowerCase()}`), sql`, `)})`
       : sql``;
     const difficultySql = difficulty
       ? sql`AND v.difficulty = ${difficulty}`
