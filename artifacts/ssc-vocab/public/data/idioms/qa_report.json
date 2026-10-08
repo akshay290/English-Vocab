@@ -1,0 +1,49 @@
+{
+  "record_count": 1281,
+  "image_count": 1281,
+  "id_range": [
+    1,
+    1281
+  ],
+  "source_counts": {
+    "idiom 1- 626 new editon.pdf": 626,
+    "idiom  627- 1281 new edition.pdf": 655
+  },
+  "flagged_count": 4,
+  "flagged_entries": [
+    {
+      "id": 287,
+      "idiom": "Beggars description",
+      "review_flags": [
+        "source_text_nonstandard"
+      ]
+    },
+    {
+      "id": 343,
+      "idiom": "Bottom line",
+      "review_flags": [
+        "source_card_printed_id_typo"
+      ]
+    },
+    {
+      "id": 667,
+      "idiom": "Get down to business",
+      "review_flags": [
+        "source_hindi_typo_interpreted"
+      ]
+    },
+    {
+      "id": 1184,
+      "idiom": "Might as well (do something)",
+      "review_flags": [
+        "source_english_definition_awkward"
+      ]
+    }
+  ],
+  "source_qa": {
+    "entry_count": 1281,
+    "error_count": 0,
+    "heuristic_review_count": 112,
+    "note": "Heuristic review items may be legitimate printed words or short meanings."
+  }
+}

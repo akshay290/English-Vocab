@@ -1,5 +1,7 @@
 # SSC Vocabulary Master — Setup Guide
 
+For the illustrated OWS and idiom library, use the short [clone-and-run guide](README.md). It needs only Node.js; the database and API steps below are for the original account, quiz, and admin features.
+
 A full-stack vocabulary preparation web app for SSC CGL, CHSL, CPO, MTS, and Banking exam aspirants.
 
 ---

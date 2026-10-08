@@ -11,6 +11,7 @@ import { AdminRoute } from '@/components/AdminRoute';
 
 // Pages
 import Home from '@/pages/Home';
+import IllustratedLibrary from '@/pages/IllustratedLibrary';
 import Login from '@/pages/auth/Login';
 import Register from '@/pages/auth/Register';
 import AdminLogin from '@/pages/auth/AdminLogin';
@@ -58,11 +59,14 @@ function App() {
               <Route>
                 <AppLayout>
                   <Switch>
-                    <Route path="/" component={Home} />
+                    <Route path="/" component={IllustratedLibrary} />
+                    <Route path="/collections" component={IllustratedLibrary} />
+                    <Route path="/study" component={Home} />
                     <Route path="/auth/login" component={Login} />
                     <Route path="/auth/register" component={Register} />
 
-                    <Route path="/vocabulary" component={VocabularyBrowser} />
+                    <Route path="/vocabulary" component={IllustratedLibrary} />
+                    <Route path="/vocabulary/legacy" component={VocabularyBrowser} />
                     <Route path="/vocabulary/alphabet/:letter" component={AlphabetBrowser} />
                     <Route path="/vocabulary/category/:category" component={CategoryBrowser} />
                     <Route path="/vocabulary/:id" component={WordDetail} />

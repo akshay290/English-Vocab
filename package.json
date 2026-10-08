@@ -10,9 +10,10 @@
     "scripts"
   ],
   "scripts": {
-    "dev": "tsx server.ts",
+    "dev": "npm --workspace=@workspace/ssc-vocab run dev",
     "build": "npm --workspace=@workspace/ssc-vocab run build",
-    "start": "node server.js",
+    "start": "npm --workspace=@workspace/ssc-vocab run serve",
+    "dev:api": "npm --workspace=@workspace/api-server run dev",
     "typecheck": "tsc --build"
   },
   "dependencies": {

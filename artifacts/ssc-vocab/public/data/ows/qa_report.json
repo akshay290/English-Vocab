@@ -1,0 +1,6031 @@
+{
+  "record_count": 2027,
+  "image_count": 2027,
+  "id_range": [
+    1,
+    2027
+  ],
+  "source_counts": {
+    "complete one word  1 - 704.pdf": 704,
+    "ows 705 -1431 new edition.pdf": 727,
+    "ows 1432- 2027 new edition.pdf": 596
+  },
+  "flagged_count": 696,
+  "flagged_entries": [
+    {
+      "id": 26,
+      "word": "Accord",
+      "review_flags": [
+        "source_definition_fragment"
+      ]
+    },
+    {
+      "id": 41,
+      "word": "Adonis",
+      "review_flags": [
+        "ocr_number_conflict"
+      ]
+    },
+    {
+      "id": 43,
+      "word": "Adulterate",
+      "review_flags": [
+        "word_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 67,
+      "word": "Alluvium",
+      "review_flags": [
+        "word_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 72,
+      "word": "Altimeter",
+      "review_flags": [
+        "word_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 91,
+      "word": "Ammeter",
+      "review_flags": [
+        "word_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 126,
+      "word": "Anticipate",
+      "review_flags": [
+        "source_definition_fragment"
+      ]
+    },
+    {
+      "id": 137,
+      "word": "Aphasia",
+      "review_flags": [
+        "word_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 168,
+      "word": "Arsonist",
+      "review_flags": [
+        "word_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 176,
+      "word": "Assailant",
+      "review_flags": [
+        "word_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 239,
+      "word": "Bibliomania",
+      "review_flags": [
+        "word_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 267,
+      "word": "Botany",
+      "review_flags": [
+        "word_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 276,
+      "word": "Brewery",
+      "review_flags": [
+        "ocr_number_conflict"
+      ]
+    },
+    {
+      "id": 321,
+      "word": "Cartographer",
+      "review_flags": [
+        "word_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 329,
+      "word": "Catalyst",
+      "review_flags": [
+        "ocr_number_conflict"
+      ]
+    },
+    {
+      "id": 334,
+      "word": "Cavalry",
+      "review_flags": [
+        "word_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 450,
+      "word": "Contagion",
+      "review_flags": [
+        "ocr_number_conflict"
+      ]
+    },
+    {
+      "id": 457,
+      "word": "Contingency",
+      "review_flags": [
+        "ocr_number_conflict"
+      ]
+    },
+    {
+      "id": 471,
+      "word": "Coup",
+      "review_flags": [
+        "ocr_number_conflict"
+      ]
+    },
+    {
+      "id": 509,
+      "word": "Decathlon",
+      "review_flags": [
+        "word_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 529,
+      "word": "Denature",
+      "review_flags": [
+        "source_definition_fragment"
+      ]
+    },
+    {
+      "id": 583,
+      "word": "Divulge",
+      "review_flags": [
+        "ocr_number_conflict"
+      ]
+    },
+    {
+      "id": 586,
+      "word": "Dormant",
+      "review_flags": [
+        "ocr_number_conflict"
+      ]
+    },
+    {
+      "id": 587,
+      "word": "Dormitory",
+      "review_flags": [
+        "ocr_number_conflict"
+      ]
+    },
+    {
+      "id": 589,
+      "word": "Dotage",
+      "review_flags": [
+        "ocr_number_conflict"
+      ]
+    },
+    {
+      "id": 590,
+      "word": "Downpour",
+      "review_flags": [
+        "ocr_number_conflict"
+      ]
+    },
+    {
+      "id": 646,
+      "word": "Emetic",
+      "review_flags": [
+        "ocr_number_conflict"
+      ]
+    },
+    {
+      "id": 682,
+      "word": "Eradicable",
+      "review_flags": [
+        "ocr_number_conflict"
+      ]
+    },
+    {
+      "id": 706,
+      "word": "Evacuate",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 708,
+      "word": "Evict",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 709,
+      "word": "Evolution",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 710,
+      "word": "Evolve",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 711,
+      "word": "Exaggerate",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 712,
+      "word": "Examinee",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 713,
+      "word": "Exceeding",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 717,
+      "word": "Exhilaration",
+      "review_flags": [
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 718,
+      "word": "Exigency",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 721,
+      "word": "Exonerate",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 722,
+      "word": "Exorbitant",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 723,
+      "word": "Expanse",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 724,
+      "word": "Expatriate",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 725,
+      "word": "Expedition",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 726,
+      "word": "Expel",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 727,
+      "word": "Expert",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 728,
+      "word": "Expiate",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 730,
+      "word": "Explorer",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 731,
+      "word": "Expurgate",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 732,
+      "word": "Extempore",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 733,
+      "word": "Extinct",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 734,
+      "word": "Extinguish",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 735,
+      "word": "Extortion",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 736,
+      "word": "Extradite",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 737,
+      "word": "Extravagant",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 738,
+      "word": "Extrovert",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 739,
+      "word": "Fable",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 741,
+      "word": "Facile",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 742,
+      "word": "Facsimile",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 743,
+      "word": "Faction",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 744,
+      "word": "Fake",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 745,
+      "word": "Fallacy",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 746,
+      "word": "Fallible",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 747,
+      "word": "Fallow",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 748,
+      "word": "Falsehood",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 749,
+      "word": "Famine",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 750,
+      "word": "Fanatic",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 751,
+      "word": "Fanatical",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 752,
+      "word": "Fantasy",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 753,
+      "word": "Fastidious",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 754,
+      "word": "Fatal",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 755,
+      "word": "Fatalism",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 756,
+      "word": "Fatalist",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 757,
+      "word": "Fatigue",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 758,
+      "word": "Fauna",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 759,
+      "word": "Feasible",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 760,
+      "word": "Feint",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 763,
+      "word": "Feline",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 764,
+      "word": "Felonious",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 765,
+      "word": "Feminist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 766,
+      "word": "Ferry",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 767,
+      "word": "Festal",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 768,
+      "word": "Feud",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 769,
+      "word": "Fickle",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 770,
+      "word": "Fictitious",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 771,
+      "word": "Fidelity",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 772,
+      "word": "Figment",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 773,
+      "word": "Filicide",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 774,
+      "word": "Firm",
+      "review_flags": [
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 775,
+      "word": "Fixation",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 776,
+      "word": "Flair",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 778,
+      "word": "Flaw",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 780,
+      "word": "Flexible",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 781,
+      "word": "Flick",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 782,
+      "word": "Flicker",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 784,
+      "word": "Flock",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 785,
+      "word": "Flora",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 786,
+      "word": "Florist",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 787,
+      "word": "Flounder",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 788,
+      "word": "Fluke",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 789,
+      "word": "Flux",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 791,
+      "word": "Folktale",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 795,
+      "word": "Foreword",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 796,
+      "word": "Forte",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 797,
+      "word": "Forfeiture",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 798,
+      "word": "Forge",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 799,
+      "word": "Forgery",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 801,
+      "word": "Fortnight",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 802,
+      "word": "Fortuitous",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 803,
+      "word": "Fossil",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 804,
+      "word": "Foundling",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 805,
+      "word": "Foyer",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 806,
+      "word": "Fragile",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 807,
+      "word": "Frailty",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 808,
+      "word": "Franchise",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 809,
+      "word": "Fratricide",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 810,
+      "word": "Fraud",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 811,
+      "word": "Fraught",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 812,
+      "word": "Frugal",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 813,
+      "word": "Frustration",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 814,
+      "word": "Fugitive",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 817,
+      "word": "Fundraiser",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 818,
+      "word": "Fungus",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 820,
+      "word": "Fuselage",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 821,
+      "word": "Fuss",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 823,
+      "word": "Galling",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 824,
+      "word": "Gambit",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 825,
+      "word": "Gambol",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 826,
+      "word": "Garbled",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 827,
+      "word": "Garrulous",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 829,
+      "word": "Gemologist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 830,
+      "word": "General",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 835,
+      "word": "Genre",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 836,
+      "word": "Genuine",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 837,
+      "word": "Geocentrism",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 838,
+      "word": "Geodesic",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 843,
+      "word": "Gerontology",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 844,
+      "word": "Gerrymander",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 845,
+      "word": "Gesture",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 847,
+      "word": "Ghetto",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 848,
+      "word": "Gibberish",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 849,
+      "word": "Gingivitis",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 853,
+      "word": "Glazier",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 858,
+      "word": "Gnaw",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 859,
+      "word": "Gourmand",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 860,
+      "word": "Gourmet",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 864,
+      "word": "Granary",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 865,
+      "word": "Graphologist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 866,
+      "word": "Graphology",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 867,
+      "word": "Gratis",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 868,
+      "word": "Greenhouse",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 869,
+      "word": "Gregarious",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 870,
+      "word": "Grind",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 871,
+      "word": "Growl",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 872,
+      "word": "Grunt",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 873,
+      "word": "Gullible",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 874,
+      "word": "Gulp",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 875,
+      "word": "Gust",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 876,
+      "word": "Gymnasium",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 877,
+      "word": "Gynaecologist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 880,
+      "word": "Hallucinogen",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 881,
+      "word": "Hamlet",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 882,
+      "word": "Hamper",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 883,
+      "word": "Handicraft",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 884,
+      "word": "Hangar",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 885,
+      "word": "Harangue",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 886,
+      "word": "Harass",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 887,
+      "word": "Harbinger",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 888,
+      "word": "Harbour",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 889,
+      "word": "Harpoon",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 890,
+      "word": "Harrowing",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 891,
+      "word": "Harsh",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 892,
+      "word": "Hassle",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 893,
+      "word": "Hatred",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 895,
+      "word": "Hearse",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 897,
+      "word": "Heart-Wrenching",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 898,
+      "word": "Heckle",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 900,
+      "word": "Heed",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 901,
+      "word": "Heir",
+      "review_flags": [
+        "word_ocr_unverified"
+      ]
+    },
+    {
+      "id": 902,
+      "word": "Heliophilous",
+      "review_flags": [
+        "word_ocr_unverified"
+      ]
+    },
+    {
+      "id": 903,
+      "word": "Heliotherapy",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 904,
+      "word": "Helmsman",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 906,
+      "word": "Herbarium",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 909,
+      "word": "Heresy",
+      "review_flags": [
+        "word_ocr_unverified"
+      ]
+    },
+    {
+      "id": 910,
+      "word": "Heretic",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 911,
+      "word": "Hermit",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 913,
+      "word": "Heterogeneous",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 917,
+      "word": "Hibernation",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 918,
+      "word": "Highbrow",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 924,
+      "word": "Hoard",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 925,
+      "word": "Holocaust",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 926,
+      "word": "Homicide",
+      "review_flags": [
+        "word_ocr_unverified"
+      ]
+    },
+    {
+      "id": 928,
+      "word": "Homonym",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 929,
+      "word": "Honeycomb",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 930,
+      "word": "Honorarium",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 931,
+      "word": "Honorary",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 932,
+      "word": "Honourable",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 933,
+      "word": "Hoot",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 934,
+      "word": "Horde",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 935,
+      "word": "Horizon",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 936,
+      "word": "Horology",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 937,
+      "word": "Horrendous",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 938,
+      "word": "Horticulture",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 939,
+      "word": "Horticulturist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 941,
+      "word": "Hospitality",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 942,
+      "word": "Hostage",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 943,
+      "word": "Hostess",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 944,
+      "word": "Hot-headed",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 945,
+      "word": "Huffy",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 946,
+      "word": "Humus",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 947,
+      "word": "Hung",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 948,
+      "word": "Hurricane",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 950,
+      "word": "Hutch",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 951,
+      "word": "Hydra",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 952,
+      "word": "Hydrography",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 953,
+      "word": "Hydrophobia",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 954,
+      "word": "Hymn",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 955,
+      "word": "Hyperbole",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 956,
+      "word": "Hypochondria",
+      "review_flags": [
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 960,
+      "word": "Hypothesis",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 964,
+      "word": "Idol",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 965,
+      "word": "Idolatry",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 966,
+      "word": "Idyllic",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 967,
+      "word": "Igloo",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 968,
+      "word": "Illegible",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 969,
+      "word": "Illicit",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 971,
+      "word": "Illuminate",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 972,
+      "word": "Illustration",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 974,
+      "word": "Imbroglio",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 975,
+      "word": "Imitable",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 976,
+      "word": "Imitation",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 977,
+      "word": "Immigrant",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 978,
+      "word": "Immigration",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 980,
+      "word": "Immoral",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 981,
+      "word": "Immortal",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 983,
+      "word": "Immunity",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 984,
+      "word": "Impale",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 986,
+      "word": "Impeachment",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 988,
+      "word": "Impervious",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 989,
+      "word": "Importune",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 992,
+      "word": "Impromptu",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 993,
+      "word": "Improvident",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 996,
+      "word": "Inaccessible",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 997,
+      "word": "Inanimate",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1000,
+      "word": "Incarnate",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1001,
+      "word": "Incentive",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1002,
+      "word": "Incessant",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1003,
+      "word": "Incivism",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1005,
+      "word": "Incoherent",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1007,
+      "word": "Incongruence",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1012,
+      "word": "Indefatigable",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1015,
+      "word": "Indigenous",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1016,
+      "word": "Indignation",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1017,
+      "word": "Indispensable",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1018,
+      "word": "Industrious",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1023,
+      "word": "Inert",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1025,
+      "word": "Inexorable",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1027,
+      "word": "Infallible",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1031,
+      "word": "Inflammable",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1032,
+      "word": "Inflorescence",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1033,
+      "word": "Ingenious",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1034,
+      "word": "Inheritance",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1035,
+      "word": "Innocent",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1036,
+      "word": "Innocuous",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1037,
+      "word": "Innuendo",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1040,
+      "word": "Insatiable",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1048,
+      "word": "Intangible",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1052,
+      "word": "Interlude",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1054,
+      "word": "Interment",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1055,
+      "word": "Interminable",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1056,
+      "word": "Internment",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1057,
+      "word": "Interpolate",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1058,
+      "word": "Interpose",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1060,
+      "word": "Intervene",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1062,
+      "word": "Intimidate",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1063,
+      "word": "Introspection",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1064,
+      "word": "Introvert",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1065,
+      "word": "Intruder",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1066,
+      "word": "Inundate",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1067,
+      "word": "Invalid",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1068,
+      "word": "Inventory",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1069,
+      "word": "Invertebrate",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1071,
+      "word": "Invigilator",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1072,
+      "word": "Invigorate",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1073,
+      "word": "Invincible",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1074,
+      "word": "Invocation",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1080,
+      "word": "Irrefutable",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1083,
+      "word": "Irrigate",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1089,
+      "word": "Itinerary",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1090,
+      "word": "Janitor",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1091,
+      "word": "Jargon",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1092,
+      "word": "Jaunt",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1093,
+      "word": "Jauntily",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1094,
+      "word": "Jaywalk",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1101,
+      "word": "Judiciary",
+      "review_flags": [
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1102,
+      "word": "Junta",
+      "review_flags": [
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1103,
+      "word": "Jurisprudence",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1106,
+      "word": "Juxtapose",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1107,
+      "word": "Kantianism",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1108,
+      "word": "Kennel",
+      "review_flags": [
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1109,
+      "word": "Kernel",
+      "review_flags": [
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1110,
+      "word": "Kin",
+      "review_flags": [
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1111,
+      "word": "Kiosk",
+      "review_flags": [
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1113,
+      "word": "Kleptomania",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1114,
+      "word": "Kleptomaniac",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1115,
+      "word": "Knack",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1116,
+      "word": "Knell",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1117,
+      "word": "Labyrinthine",
+      "review_flags": [
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1121,
+      "word": "Lair",
+      "review_flags": [
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1122,
+      "word": "Lamb",
+      "review_flags": [
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1123,
+      "word": "Lament",
+      "review_flags": [
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1125,
+      "word": "Lapidist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1126,
+      "word": "Larder",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1129,
+      "word": "Laundry",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1130,
+      "word": "Laurel",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1131,
+      "word": "Lax",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1132,
+      "word": "Laxative",
+      "review_flags": [
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1133,
+      "word": "Lease",
+      "review_flags": [
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1136,
+      "word": "Legal",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1137,
+      "word": "Leisure",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1139,
+      "word": "Lepidopterist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1141,
+      "word": "Lexicography",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1144,
+      "word": "Libertarian",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1145,
+      "word": "Library",
+      "review_flags": [
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1146,
+      "word": "Ligament",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1148,
+      "word": "Limerick",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1150,
+      "word": "Linchpin",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1152,
+      "word": "Linguist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1153,
+      "word": "Literate",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1154,
+      "word": "Litotes",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1155,
+      "word": "Livestock",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1156,
+      "word": "Loquacious",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1157,
+      "word": "Lucid",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1158,
+      "word": "Lucrative",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1159,
+      "word": "Lullaby",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1160,
+      "word": "Lumen",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1161,
+      "word": "Luminary",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1162,
+      "word": "Lump Sum",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1164,
+      "word": "Lunatic",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1165,
+      "word": "Lurch",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1166,
+      "word": "Maelstrom",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1167,
+      "word": "Magician",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1168,
+      "word": "Magnanimous",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1169,
+      "word": "Magnificent",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1170,
+      "word": "Maiden",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1171,
+      "word": "Maiden speech",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1172,
+      "word": "Malapropism",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1173,
+      "word": "Malcontent",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1174,
+      "word": "Malevolence",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1175,
+      "word": "Malevolent",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1176,
+      "word": "Malfunction",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1177,
+      "word": "Malleable",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1179,
+      "word": "Mammal",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1180,
+      "word": "Manifestly",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1181,
+      "word": "Manifesto",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1182,
+      "word": "Mannequin",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1183,
+      "word": "Manoeuvre",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1184,
+      "word": "Manometer",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1185,
+      "word": "Mansion",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1186,
+      "word": "Manuscript",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1187,
+      "word": "Marine",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1188,
+      "word": "Martial",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1189,
+      "word": "Martinet",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1191,
+      "word": "Masochist",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1197,
+      "word": "Matrimony",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1198,
+      "word": "Mausoleum",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1209,
+      "word": "Melancholy",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1210,
+      "word": "Melodious",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1211,
+      "word": "Melodrama",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1213,
+      "word": "Memento",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1214,
+      "word": "Memoir",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1215,
+      "word": "Menace",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1217,
+      "word": "Mendicant",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1218,
+      "word": "Mercenary",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1219,
+      "word": "Metafiction",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1221,
+      "word": "Metamorphosis",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1222,
+      "word": "Meticulous",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1223,
+      "word": "Microenterprise",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1225,
+      "word": "Microscope",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1227,
+      "word": "Migration",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1231,
+      "word": "Mindful",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1232,
+      "word": "Mineralogist",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1233,
+      "word": "Mint",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1236,
+      "word": "Misappropriate",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1237,
+      "word": "Miser",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1238,
+      "word": "Misnomer",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1239,
+      "word": "Misogamist",
+      "review_flags": [
+        "word_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1240,
+      "word": "Misogynist",
+      "review_flags": [
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1242,
+      "word": "Misoneist",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1244,
+      "word": "Mob",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1246,
+      "word": "Momentary",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1247,
+      "word": "Momentous",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1248,
+      "word": "Monarch",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1249,
+      "word": "Monarchy",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1250,
+      "word": "Monastery",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1251,
+      "word": "Monition",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1252,
+      "word": "Monk",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1253,
+      "word": "Monogamist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1254,
+      "word": "Monogamy",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1255,
+      "word": "Monograph",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1256,
+      "word": "Monologue",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1258,
+      "word": "Monopoly",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1259,
+      "word": "Monosomy",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1260,
+      "word": "Monotheist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1261,
+      "word": "Monotonous",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1262,
+      "word": "Montage",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1263,
+      "word": "Monument",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1264,
+      "word": "Moor",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1265,
+      "word": "Mores",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1267,
+      "word": "Morphology",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1269,
+      "word": "Mortgage",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1270,
+      "word": "Mortuary",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1271,
+      "word": "Mosaic",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1272,
+      "word": "Mottle",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1273,
+      "word": "Mouth-watering",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1274,
+      "word": "Muffle",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1275,
+      "word": "Muffled",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1277,
+      "word": "Multitasking",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1278,
+      "word": "Multitudinous",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1279,
+      "word": "Mummy",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1281,
+      "word": "Museum",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1282,
+      "word": "Mutiny",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1283,
+      "word": "Myopic",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1284,
+      "word": "Mystery",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1285,
+      "word": "Mythomania",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1286,
+      "word": "Mythophobia",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1287,
+      "word": "Naive",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1289,
+      "word": "Narcissism",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1290,
+      "word": "Narcissist",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1291,
+      "word": "Narcotic",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1292,
+      "word": "Nascent",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1293,
+      "word": "Nasty",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1294,
+      "word": "Native",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1295,
+      "word": "Navigate",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1296,
+      "word": "Nectar",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1297,
+      "word": "Negligible",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1301,
+      "word": "Neologism",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1306,
+      "word": "Neurology",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1307,
+      "word": "Neuroscience",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1310,
+      "word": "Nirvana",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1311,
+      "word": "Nocturnal",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1314,
+      "word": "Nonagenarian",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1316,
+      "word": "Nonentity",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1317,
+      "word": "Nosomania",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1318,
+      "word": "Nostalgia",
+      "review_flags": [
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1319,
+      "word": "Notorious",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1323,
+      "word": "Numismatics",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1324,
+      "word": "Numismatist",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1325,
+      "word": "Nursery",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1327,
+      "word": "Oaf",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1328,
+      "word": "Oasis",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1329,
+      "word": "Obituary",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1330,
+      "word": "Oblivious",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1331,
+      "word": "Obscure",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1332,
+      "word": "Observatory",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1333,
+      "word": "Obsession",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1334,
+      "word": "Obsolescence",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1335,
+      "word": "Obsolescent",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1336,
+      "word": "Obsolete",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1337,
+      "word": "Occidental",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1338,
+      "word": "Octagon",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1339,
+      "word": "Octogenarian",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1340,
+      "word": "Octopus",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1341,
+      "word": "Oculist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1342,
+      "word": "Odyssey",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1343,
+      "word": "Oenomania",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1344,
+      "word": "Off-Centre",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1345,
+      "word": "Oligarchy",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1346,
+      "word": "Ombudsman",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1347,
+      "word": "Ominous",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1348,
+      "word": "Omnibus",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1349,
+      "word": "Omnipotent",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1352,
+      "word": "Omnivore",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1353,
+      "word": "Omnivorous",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1354,
+      "word": "Opaque",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1355,
+      "word": "Ophidiophobia",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1356,
+      "word": "Ophiology",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1357,
+      "word": "Ophthalmologist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1358,
+      "word": "Opinionated",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1359,
+      "word": "Opprobrium",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1361,
+      "word": "Opus",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1362,
+      "word": "Oration",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1364,
+      "word": "Orchard",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1365,
+      "word": "Orchestra",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1366,
+      "word": "Ordeal",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1367,
+      "word": "Orifice",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1368,
+      "word": "Ornithologist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1369,
+      "word": "Ornithology",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1370,
+      "word": "Orography",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1372,
+      "word": "Orphan",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1373,
+      "word": "Orphanage",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1374,
+      "word": "Orthodox",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1375,
+      "word": "Orthopaedics",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1376,
+      "word": "Orthopaedist",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1377,
+      "word": "Ossify",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1378,
+      "word": "Ostler",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1379,
+      "word": "Ostracise",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1380,
+      "word": "Outdo",
+      "review_flags": [
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1382,
+      "word": "Outlaw",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1383,
+      "word": "Outreach",
+      "review_flags": [
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1384,
+      "word": "Overhead",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1385,
+      "word": "Overlook",
+      "review_flags": [
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1386,
+      "word": "Overwhelm",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1387,
+      "word": "Ovine",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1388,
+      "word": "Pacifism",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1389,
+      "word": "Pacifist",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1390,
+      "word": "Pack",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1391,
+      "word": "Pact",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1392,
+      "word": "Paediatrician",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1393,
+      "word": "Palaeography",
+      "review_flags": [
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1394,
+      "word": "Palaeontologist",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1395,
+      "word": "Palindrome",
+      "review_flags": [
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1396,
+      "word": "Palliation",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1397,
+      "word": "Palpable",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1398,
+      "word": "Panacea",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1399,
+      "word": "Pandemic",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1400,
+      "word": "Pandemonium",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1401,
+      "word": "Pander",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1402,
+      "word": "Panegyric",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1403,
+      "word": "Panic",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1404,
+      "word": "Panorama",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1405,
+      "word": "Pant",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1406,
+      "word": "Pantheism",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "english_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1408,
+      "word": "Pantheon",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1411,
+      "word": "Parable",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1412,
+      "word": "Paradox",
+      "review_flags": [
+        "word_ocr_uncertain",
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1413,
+      "word": "Parasite",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1414,
+      "word": "Parboil",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1415,
+      "word": "Pariah",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1416,
+      "word": "Parochial",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1417,
+      "word": "Parole",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1418,
+      "word": "Parricide",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1419,
+      "word": "Parvenu",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1421,
+      "word": "Pathology",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1422,
+      "word": "Patriarchy",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1423,
+      "word": "Patricide",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1424,
+      "word": "Patrilineal",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1425,
+      "word": "Patrimony",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1426,
+      "word": "Patriot",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1427,
+      "word": "Patrol",
+      "review_flags": [
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1429,
+      "word": "Pecuniary",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1430,
+      "word": "Pedagogy",
+      "review_flags": [
+        "word_ocr_unverified",
+        "hindi_ocr_unverified",
+        "english_ocr_unverified"
+      ]
+    },
+    {
+      "id": 1435,
+      "word": "Pediatrics",
+      "review_flags": [
+        "title_id_ocr_mismatch:1436"
+      ]
+    },
+    {
+      "id": 1444,
+      "word": "Perennial",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1446,
+      "word": "Perfunctory",
+      "review_flags": [
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1452,
+      "word": "Perseverance",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1453,
+      "word": "Personnel",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1457,
+      "word": "Pestiferous",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1458,
+      "word": "Pestle",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1507,
+      "word": "Polygamy",
+      "review_flags": [
+        "meaning_ocr_missing",
+        "hindi_from_v2_ocr_review",
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1516,
+      "word": "Portfolio",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1524,
+      "word": "Practice",
+      "review_flags": [
+        "meaning_ocr_missing",
+        "hindi_from_v2_ocr_review",
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1541,
+      "word": "Presumption",
+      "review_flags": [
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1542,
+      "word": "Pretentious",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1544,
+      "word": "Pride",
+      "review_flags": [
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1546,
+      "word": "Probationer",
+      "review_flags": [
+        "title_ocr_disagreement",
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1547,
+      "word": "Procrastinate",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1550,
+      "word": "Prodigy",
+      "review_flags": [
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1551,
+      "word": "Proficiency",
+      "review_flags": [
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1553,
+      "word": "Profligate",
+      "review_flags": [
+        "title_id_ocr_mismatch:1663"
+      ]
+    },
+    {
+      "id": 1555,
+      "word": "Proliferate",
+      "review_flags": [
+        "meaning_ocr_missing",
+        "hindi_from_v2_ocr_review",
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1557,
+      "word": "Prologue",
+      "review_flags": [
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1559,
+      "word": "Prop",
+      "review_flags": [
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1560,
+      "word": "Propaganda",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1561,
+      "word": "Prophet",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1562,
+      "word": "Propulsion",
+      "review_flags": [
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1565,
+      "word": "Protagonist",
+      "review_flags": [
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1567,
+      "word": "Prototype",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1570,
+      "word": "Prowler",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1581,
+      "word": "Pursue",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1587,
+      "word": "Quadrangle",
+      "review_flags": [
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1588,
+      "word": "Quadruped",
+      "review_flags": [
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1591,
+      "word": "Quest",
+      "review_flags": [
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1600,
+      "word": "Radical",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1604,
+      "word": "Ramification",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1605,
+      "word": "Rampage",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1606,
+      "word": "Rancid",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1607,
+      "word": "Rancorous",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1608,
+      "word": "Ransom",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1613,
+      "word": "Recant",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1615,
+      "word": "Reciprocate",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1617,
+      "word": "Reclusive",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1619,
+      "word": "Rectilinear",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1620,
+      "word": "Recurrent",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1621,
+      "word": "Red-Tapism",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1625,
+      "word": "Reformer",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1626,
+      "word": "Reformism",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1628,
+      "word": "Regalia",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1630,
+      "word": "Rehabilitate",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1633,
+      "word": "Relic",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1634,
+      "word": "Reluctant",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1636,
+      "word": "Reminiscence",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1638,
+      "word": "Remorse",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1639,
+      "word": "Remuneration",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1640,
+      "word": "Rendition",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1641,
+      "word": "Renegade",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1642,
+      "word": "Renovate",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1643,
+      "word": "Repatriation",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1644,
+      "word": "Repentance",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1645,
+      "word": "Replenish",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1646,
+      "word": "Replica",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1650,
+      "word": "Requiem",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1652,
+      "word": "Reservoir",
+      "review_flags": [
+        "meaning_ocr_missing",
+        "hindi_from_v2_ocr_review",
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1653,
+      "word": "Resilience",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1655,
+      "word": "Respiration",
+      "review_flags": [
+        "title_id_ocr_mismatch:222"
+      ]
+    },
+    {
+      "id": 1660,
+      "word": "Retreat",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1662,
+      "word": "Revamp",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1663,
+      "word": "Reveille",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1674,
+      "word": "Rotunda",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1678,
+      "word": "Sadistic",
+      "review_flags": [
+        "title_id_ocr_mismatch:1878"
+      ]
+    },
+    {
+      "id": 1679,
+      "word": "Safe haven",
+      "review_flags": [
+        "title_id_ocr_mismatch:1879"
+      ]
+    },
+    {
+      "id": 1682,
+      "word": "Salvo",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1698,
+      "word": "Scarcity",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1705,
+      "word": "Scholarship",
+      "review_flags": [
+        "meaning_ocr_missing",
+        "hindi_from_v2_ocr_review",
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1711,
+      "word": "Scullery",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1724,
+      "word": "Septuagenarian",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1728,
+      "word": "Sericulture",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1729,
+      "word": "Serpentarium",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1730,
+      "word": "Sesquipedalian",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1732,
+      "word": "Sexagenarian",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1733,
+      "word": "Shaft",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1745,
+      "word": "Sinecure",
+      "review_flags": [
+        "title_id_ocr_mismatch:1948"
+      ]
+    },
+    {
+      "id": 1748,
+      "word": "Slacken",
+      "review_flags": [
+        "title_id_ocr_mismatch:425",
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1749,
+      "word": "Slanderous",
+      "review_flags": [
+        "title_id_ocr_mismatch:1742"
+      ]
+    },
+    {
+      "id": 1752,
+      "word": "Smother",
+      "review_flags": [
+        "title_id_ocr_mismatch:1782"
+      ]
+    },
+    {
+      "id": 1753,
+      "word": "Snob",
+      "review_flags": [
+        "title_id_ocr_mismatch:7832",
+        "meaning_ocr_missing",
+        "hindi_from_v2_ocr_review",
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1755,
+      "word": "Sociologist",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1756,
+      "word": "Sociology",
+      "review_flags": [
+        "title_id_ocr_mismatch:1726"
+      ]
+    },
+    {
+      "id": 1761,
+      "word": "Soliloquy",
+      "review_flags": [
+        "title_id_ocr_mismatch:1721"
+      ]
+    },
+    {
+      "id": 1765,
+      "word": "Somnambulist",
+      "review_flags": [
+        "title_id_ocr_mismatch:1766"
+      ]
+    },
+    {
+      "id": 1767,
+      "word": "Somniloquy",
+      "review_flags": [
+        "title_id_ocr_mismatch:767"
+      ]
+    },
+    {
+      "id": 1769,
+      "word": "Soporific",
+      "review_flags": [
+        "title_id_ocr_mismatch:769"
+      ]
+    },
+    {
+      "id": 1772,
+      "word": "Souvenir",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1774,
+      "word": "Spasm",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1777,
+      "word": "Speleology",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1784,
+      "word": "Spurious",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1793,
+      "word": "Statute",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1797,
+      "word": "Stoicism",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1800,
+      "word": "Stowaway",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1802,
+      "word": "Stratocracy",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1838,
+      "word": "Syllable",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1860,
+      "word": "Tenacious",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1868,
+      "word": "Theology",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1874,
+      "word": "Timid",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1877,
+      "word": "Toddler",
+      "review_flags": [
+        "source_title_typo_normalized"
+      ]
+    },
+    {
+      "id": 1879,
+      "word": "Tortuous",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1883,
+      "word": "Traitor",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1884,
+      "word": "Tranquil",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1888,
+      "word": "Transgressor",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1893,
+      "word": "Transparent",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1894,
+      "word": "Traverse",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1895,
+      "word": "Travesty",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1897,
+      "word": "Tremor",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1898,
+      "word": "Tremulous",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1899,
+      "word": "Trepidation",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1900,
+      "word": "Trespass",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1901,
+      "word": "Trespasser",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1902,
+      "word": "Tributary",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1903,
+      "word": "Triennial",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1904,
+      "word": "Trilogy",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1905,
+      "word": "Tripod",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1918,
+      "word": "Turbulence",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1927,
+      "word": "Uninitiated",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1928,
+      "word": "Universal",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1937,
+      "word": "Usher",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1938,
+      "word": "Usurer",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1940,
+      "word": "Utility",
+      "review_flags": [
+        "source_title_typo_normalized"
+      ]
+    },
+    {
+      "id": 1941,
+      "word": "Utopia",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1943,
+      "word": "Vacillate",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1944,
+      "word": "Vagabond",
+      "review_flags": [
+        "english_ocr_uncertain",
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1962,
+      "word": "Veracity",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1963,
+      "word": "Verbatim",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1964,
+      "word": "Verbiage",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1971,
+      "word": "Vestige",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1972,
+      "word": "Veteran",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1973,
+      "word": "Veterinarian",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1974,
+      "word": "Vicinity",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1977,
+      "word": "Vindictive",
+      "review_flags": [
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1979,
+      "word": "Virtue",
+      "review_flags": [
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1982,
+      "word": "Vis-à-vis",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1986,
+      "word": "Volatile",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 1987,
+      "word": "Volition",
+      "review_flags": [
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1988,
+      "word": "Volley",
+      "review_flags": [
+        "title_id_ocr_mismatch:9282"
+      ]
+    },
+    {
+      "id": 1989,
+      "word": "Voluntary",
+      "review_flags": [
+        "title_id_ocr_mismatch:9698"
+      ]
+    },
+    {
+      "id": 1991,
+      "word": "Voracious",
+      "review_flags": [
+        "title_ocr_disagreement",
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 1992,
+      "word": "Voyage",
+      "review_flags": [
+        "meaning_ocr_missing",
+        "hindi_from_v2_ocr_review",
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1996,
+      "word": "Waif",
+      "review_flags": [
+        "english_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 1997,
+      "word": "Walkway",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 2002,
+      "word": "Waybill",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 2005,
+      "word": "Whisper",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 2012,
+      "word": "Winnow",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 2013,
+      "word": "Witchery",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 2015,
+      "word": "Wrangle",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 2021,
+      "word": "Yoke",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    },
+    {
+      "id": 2022,
+      "word": "Zealot",
+      "review_flags": [
+        "source_image_verified_meaning"
+      ]
+    },
+    {
+      "id": 2024,
+      "word": "Zodiac",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 2025,
+      "word": "Zoo",
+      "review_flags": [
+        "title_ocr_disagreement"
+      ]
+    },
+    {
+      "id": 2026,
+      "word": "Zoologist",
+      "review_flags": [
+        "hindi_ocr_uncertain",
+        "hindi_from_v2_ocr_review"
+      ]
+    }
+  ]
+}

@@ -1,5 +1,7 @@
 # Running SSC Vocabulary Master on Windows
 
+For the illustrated OWS and idiom library, use the short [clone-and-run guide](README.md). It needs only Node.js; the PostgreSQL and API steps below are for the original account, quiz, and admin features.
+
 Follow these steps carefully. Each one matters.
 
 ---
