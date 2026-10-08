@@ -1,41 +1,30 @@
-# English Vocab
+# SSC Vocab Master
 
-An illustrated English–Hindi library with **2,027 one-word substitutions** and **1,281 idioms**. Every entry has its word or idiom, English meaning, Hindi meaning, and a linked image from the supplied 2027 edition PDFs.
+A vocabulary study app with accounts, tests, progress tracking, a Strong Words list, revision, leaderboard, and an illustrated 2027 collection of **2,027 one-word substitutions** and **1,281 idioms**. The original home page and vocabulary browser remain in place; the illustrated collection is available at `/collections`.
 
-## Clone and run
+## Run the complete app
 
-Install Node.js 22.12 or newer, then run:
+Install Docker Desktop, then run:
 
-```powershell
+```bash
 git clone https://github.com/akshay290/English-Vocab.git
 cd English-Vocab
-npm install
+docker compose up --build
+```
+
+Open **http://localhost:3000**. Compose starts PostgreSQL, creates the schema, imports the bundled vocabulary, starts the API, and serves the frontend. Account, test, mastery, revision, and admin features use this API. The first build can take time because the repository includes 3,308 images. The database is kept in a Docker volume when the app stops. Change the example database, session, and admin credentials in `docker-compose.yml` before making the app public.
+
+## Browse the illustrated collection without Docker
+
+With Node.js 22.12 or newer:
+
+```bash
+npm ci
 npm run dev
 ```
 
-Open **http://localhost:3000**. The OWS and idiom collections work without PostgreSQL, an API server, or a `.env` file. Use the tabs to switch collections and search in English or Hindi. Images load from files included in this repository.
+Open **http://localhost:3000/collections**. The illustrated OWS and idiom pages work from bundled JSON and images without the API. Account, test, vocabulary browser, progress, and revision pages require the complete app above or a manually configured PostgreSQL and API server; see [SETUP.md](SETUP.md).
 
-For a production build:
+## Data
 
-```powershell
-npm run build
-npm start
-```
-
-The existing account, quiz, leaderboard, and admin features use the separate API and PostgreSQL service. They are hidden from the library navigation until that service is configured. Their setup is documented in [SETUP.md](SETUP.md) and [WINDOWS_SETUP.md](WINDOWS_SETUP.md). To show their navigation after setup, set `VITE_ENABLE_FULL_STACK=true` in the terminal before starting the frontend.
-
-## Data layout
-
-The app serves the complete datasets from `artifacts/ssc-vocab/public/data`:
-
-```text
-data/
-  ows/
-    ows_2027.json
-    images/0001.jpg ... 2027.jpg
-  idioms/
-    idioms_1281.json
-    images/0001.jpg ... 1281.jpg
-```
-
-Each JSON file has an `entries` array. The `image` field is relative to its dataset directory, and every path has a matching JPG. The records keep source page metadata and any `review_flags`. The OWS dataset has 696 entries flagged for proofreading against their illustrated source cards. The app copy corrects one verified trailing OCR error in entry 2027, “Zoology”. See [data notes](artifacts/ssc-vocab/public/data/README.md) for details.
+The datasets are in `artifacts/ssc-vocab/public/data`. Each JSON `entries` array contains the word or idiom, English meaning, Hindi meaning, source metadata, and an `image` path to a matching local JPG. The database import uses stable source keys, so restarting the stack does not duplicate records or reset user progress. The data QA report flags 696 OWS entries for proofreading against their source cards. See the [data notes](artifacts/ssc-vocab/public/data/README.md).

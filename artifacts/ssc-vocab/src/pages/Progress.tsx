@@ -5,6 +5,8 @@ import { BrainCircuit, BookA, Activity, Target, Trophy } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import { formatCategory, getCategoryColor } from '@/lib/utils';
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
+import { Link } from 'wouter';
 
 export default function ProgressPage() {
   const { data: progress, isLoading } = useGetUserProgress();
@@ -33,9 +35,14 @@ export default function ProgressPage() {
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-5xl space-y-8">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight">Your Progress</h1>
-        <p className="text-muted-foreground mt-1">Track your vocabulary mastery journey</p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight">Your Progress</h1>
+          <p className="text-muted-foreground mt-1">Track your vocabulary mastery journey</p>
+        </div>
+        <Button variant="outline" asChild>
+          <Link href="/strong-words">View Strong Words</Link>
+        </Button>
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">

@@ -315,7 +315,7 @@ function formatVocabItem(item: typeof vocabularyItemsTable.$inferSelect) {
     alphabet: item.alphabet.toUpperCase(),
     topics: (item.topics as string[]) ?? [],
     examRefs: (item.examRefs as string[]) ?? [],
-    imageUrl: (item as any).imageUrl ?? null,
+    imageUrl: item.imageUrl ?? null,
     isActive: item.isActive,
     createdAt: item.createdAt,
   };

@@ -1,6 +1,6 @@
 # SSC Vocabulary Master — Setup Guide
 
-For the illustrated OWS and idiom library, use the short [clone-and-run guide](README.md). It needs only Node.js; the database and API steps below are for the original account, quiz, and admin features.
+For the complete app, use the Docker Compose command in the [README](README.md). The manual PostgreSQL and API steps below are an alternative. The illustrated collection alone needs only Node.js.
 
 A full-stack vocabulary preparation web app for SSC CGL, CHSL, CPO, MTS, and Banking exam aspirants.
 
@@ -72,6 +72,13 @@ PORT=5173 BASE_PATH=/ pnpm run dev
 
 The app will be available at `http://localhost:5173`
 
+The seed command imports the bundled 2027 OWS and 1281 idiom entries from
+`artifacts/ssc-vocab/public/data` into PostgreSQL after the schema is pushed.
+It keeps existing vocabulary, users, tests, and progress, and can be run again
+without duplicating imported words. Images are linked through `/data/...` paths
+served by the frontend. The static JSON and images remain available even if the
+database service is stopped.
+
 ---
 
 ## Docker Compose Setup
@@ -86,14 +93,12 @@ cd <repo-dir>
 # 3. Build and start everything
 docker compose up --build
 
-# 4. Push schema & seed data (first time only)
-docker compose exec api pnpm --filter @workspace/db run push
-docker compose exec api pnpm --filter @workspace/db run seed
+# 4. Schema creation and data import happen automatically when the API starts.
 ```
 
 The app will be available at:
 - Frontend: `http://localhost:3000`
-- API: `http://localhost:8080`
+- API through the frontend proxy: `http://localhost:3000/api/healthz`
 
 ---
 

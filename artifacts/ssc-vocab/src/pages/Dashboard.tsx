@@ -22,7 +22,13 @@ export default function Dashboard() {
           <h1 className="text-3xl font-bold tracking-tight">Your Dashboard</h1>
           <p className="text-muted-foreground mt-1">Welcome back! Here's how you're doing.</p>
         </div>
-        <div className="flex gap-3">
+        <div className="flex flex-wrap gap-3">
+          <Button asChild variant="outline" className="gap-2">
+            <Link href="/strong-words">
+              <BookA className="h-4 w-4" />
+              Strong Words
+            </Link>
+          </Button>
           <Button asChild variant="secondary" className="gap-2">
             <Link href="/revision">
               <BrainCircuit className="h-4 w-4" />
@@ -224,8 +230,8 @@ export default function Dashboard() {
                     {stats.weakWordsCount || 0}
                   </span>
                 </div>
-                <Button className="w-full mt-3 h-9 bg-destructive/10 text-destructive hover:bg-destructive/20" variant="ghost" size="sm" disabled={!stats.weakWordsCount}>
-                  Review Weak Words
+                <Button className="w-full mt-3 h-9 bg-destructive/10 text-destructive hover:bg-destructive/20" variant="ghost" size="sm" disabled={!stats.weakWordsCount} asChild={!!stats.weakWordsCount}>
+                  {stats.weakWordsCount ? <Link href="/revision">Review Weak Words</Link> : <span>Review Weak Words</span>}
                 </Button>
               </div>
             </CardContent>

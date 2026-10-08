@@ -14,6 +14,8 @@ export interface VocabularyItem {
   /** @nullable */
   hindiMeaning?: string | null;
   /** @nullable */
+  imageUrl?: string | null;
+  /** @nullable */
   exampleSentence?: string | null;
   synonyms?: string[];
   antonyms?: string[];

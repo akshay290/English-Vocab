@@ -108,6 +108,16 @@ export default function WordDetail({ params }: { params: { id: string } }) {
                 </Button>
               </div>
 
+              {word.imageUrl && (
+                <img
+                  src={word.imageUrl}
+                  alt={`Illustrated vocabulary card for ${word.word}`}
+                  className="w-full max-h-[440px] object-contain rounded-xl border bg-muted/20 mb-6"
+                  loading="lazy"
+                  decoding="async"
+                />
+              )}
+
               <div className="space-y-6">
                 <div>
                   <h3 className="text-lg font-semibold flex items-center gap-2 mb-2 text-primary">

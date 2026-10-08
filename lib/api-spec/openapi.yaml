@@ -976,6 +976,8 @@ components:
           type: string
         hindiMeaning:
           type: ["string", "null"]
+        imageUrl:
+          type: ["string", "null"]
         exampleSentence:
           type: ["string", "null"]
         synonyms:

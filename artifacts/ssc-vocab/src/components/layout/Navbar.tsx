@@ -9,21 +9,20 @@ export function Navbar() {
   const { user, isAuthenticated, isAdmin, logout } = useAuth();
   const [location] = useLocation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const fullStackEnabled = import.meta.env.VITE_ENABLE_FULL_STACK === 'true';
-
-  const navLinks = !fullStackEnabled
-    ? [{ href: '/vocabulary', label: 'Browse collection' }]
-    : isAuthenticated
+  const navLinks = isAuthenticated
     ? [
         { href: '/dashboard', label: 'Dashboard' },
         { href: '/vocabulary', label: 'Vocabulary' },
+        { href: '/collections', label: 'OWS & Idioms' },
         { href: '/tests', label: 'Tests' },
         { href: '/progress', label: 'Progress' },
+        { href: '/strong-words', label: 'Strong Words' },
         { href: '/leaderboard', label: 'Leaderboard' },
         { href: '/revision', label: 'Revision' },
       ]
     : [
         { href: '/vocabulary', label: 'Browse Words' },
+        { href: '/collections', label: 'OWS & Idioms' },
         { href: '/leaderboard', label: 'Leaderboard' },
       ];
 
@@ -38,12 +37,12 @@ export function Navbar() {
           <div className="bg-primary text-primary-foreground p-1.5 rounded-lg">
             <BookOpen className="h-5 w-5" />
           </div>
-          <span className="font-bold text-lg hidden sm:inline-block">English Vocab</span>
-          <span className="font-bold text-lg sm:hidden">English Vocab</span>
+          <span className="font-bold text-lg hidden sm:inline-block">SSC Vocab Master</span>
+          <span className="font-bold text-lg sm:hidden">Vocab Master</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-6">
+        <div className="hidden xl:flex items-center gap-4">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -55,7 +54,7 @@ export function Navbar() {
               {link.label}
             </Link>
           ))}
-          {fullStackEnabled && isAdmin && (
+          {isAdmin && (
             <Link
               href="/admin/dashboard"
               className={`text-sm font-medium transition-colors flex items-center gap-1 hover:text-destructive ${
@@ -68,7 +67,7 @@ export function Navbar() {
           )}
         </div>
 
-        {fullStackEnabled && <div className="hidden md:flex items-center gap-4">
+        <div className="hidden xl:flex items-center gap-4">
           {isAuthenticated ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -107,17 +106,17 @@ export function Navbar() {
               </Button>
             </>
           )}
-        </div>}
+        </div>
 
         {/* Mobile Menu Toggle */}
-        <Button variant="ghost" size="icon" className="md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <Button variant="ghost" size="icon" className="xl:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden border-b bg-background px-4 py-4 space-y-4">
+        <div className="xl:hidden border-b bg-background px-4 py-4 space-y-4">
           <div className="flex flex-col space-y-3">
             {navLinks.map((link) => (
               <Link
@@ -132,7 +131,7 @@ export function Navbar() {
               </Link>
             ))}
           </div>
-          {fullStackEnabled && <div className="border-t pt-4">
+          <div className="border-t pt-4">
             {isAuthenticated ? (
               <div className="space-y-3">
                 <div className="px-2">
@@ -159,7 +158,7 @@ export function Navbar() {
                 </Button>
               </div>
             )}
-          </div>}
+          </div>
         </div>
       )}
     </nav>

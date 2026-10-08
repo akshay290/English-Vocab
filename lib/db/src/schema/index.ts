@@ -27,6 +27,8 @@ export type User = typeof usersTable.$inferSelect;
 
 export const vocabularyItemsTable = pgTable("vocabulary_items", {
   id: serial("id").primaryKey(),
+  // Stable identity for bundled vocabulary. Null for existing and admin-created words.
+  sourceKey: text("source_key").unique(),
   word: text("word").notNull(),
   meaning: text("meaning").notNull(),
   hindiMeaning: text("hindi_meaning"),

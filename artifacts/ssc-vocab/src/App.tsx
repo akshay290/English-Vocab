@@ -25,6 +25,7 @@ import ActiveTest from '@/pages/tests/ActiveTest';
 import TestResult from '@/pages/tests/TestResult';
 import TestHistory from '@/pages/tests/TestHistory';
 import Progress from '@/pages/Progress';
+import StrongWords from '@/pages/StrongWords';
 import Revision from '@/pages/Revision';
 import Leaderboard from '@/pages/Leaderboard';
 import AdminDashboard from '@/pages/admin/Dashboard';
@@ -59,14 +60,12 @@ function App() {
               <Route>
                 <AppLayout>
                   <Switch>
-                    <Route path="/" component={IllustratedLibrary} />
+                    <Route path="/" component={Home} />
                     <Route path="/collections" component={IllustratedLibrary} />
-                    <Route path="/study" component={Home} />
                     <Route path="/auth/login" component={Login} />
                     <Route path="/auth/register" component={Register} />
 
-                    <Route path="/vocabulary" component={IllustratedLibrary} />
-                    <Route path="/vocabulary/legacy" component={VocabularyBrowser} />
+                    <Route path="/vocabulary" component={VocabularyBrowser} />
                     <Route path="/vocabulary/alphabet/:letter" component={AlphabetBrowser} />
                     <Route path="/vocabulary/category/:category" component={CategoryBrowser} />
                     <Route path="/vocabulary/:id" component={WordDetail} />
@@ -78,6 +77,7 @@ function App() {
                     <ProtectedRoute path="/tests/:id" component={ActiveTest} />
                     <ProtectedRoute path="/tests" component={Tests} />
                     <ProtectedRoute path="/progress" component={Progress} />
+                    <ProtectedRoute path="/strong-words" component={StrongWords} />
                     <ProtectedRoute path="/revision" component={Revision} />
 
                     <Route component={NotFound} />

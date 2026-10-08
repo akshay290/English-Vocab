@@ -13,6 +13,15 @@ export function VocabCard({ word }: { word: VocabularyItem }) {
   return (
     <Card className="h-full flex flex-col hover-elevate transition-all group overflow-hidden border-border/50 hover:border-primary/30">
       <div className={`h-1.5 w-full bg-gradient-to-r from-primary to-primary/50`} />
+      {word.imageUrl && (
+        <img
+          src={word.imageUrl}
+          alt={`Illustrated vocabulary card for ${word.word}`}
+          className="h-44 w-full object-contain bg-muted/20 border-b"
+          loading="lazy"
+          decoding="async"
+        />
+      )}
       <CardHeader className="pb-3 px-5 pt-5">
         <div className="flex justify-between items-start mb-2">
           <Badge variant="outline" className={`font-semibold border bg-transparent ${categoryColor}`}>

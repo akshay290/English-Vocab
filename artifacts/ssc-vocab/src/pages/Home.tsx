@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, BookA, BrainCircuit, Target, Trophy } from 'lucide-react';
+import { ArrowRight, BookA, BrainCircuit, Quote, Target, Trophy } from 'lucide-react';
 import { Link } from 'wouter';
 import { useBrowseTopics } from '@workspace/api-client-react';
 
@@ -80,6 +80,50 @@ export default function Home() {
                 </p>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Illustrated collections */}
+      <section className="py-16 md:py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-widest text-primary mb-2">2027 edition</p>
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Illustrated OWS &amp; Idioms</h2>
+              <p className="text-muted-foreground mt-3 max-w-2xl">
+                Explore English and Hindi meanings with an image for every entry.
+              </p>
+            </div>
+            <Button variant="outline" asChild>
+              <Link href="/collections">View all collections <ArrowRight className="ml-2 h-4 w-4" /></Link>
+            </Button>
+          </div>
+          <div className="grid md:grid-cols-2 gap-5">
+            <Link href="/collections" className="group block">
+              <Card className="h-full border-primary/20 transition-colors group-hover:border-primary/60 group-hover:bg-primary/5">
+                <CardContent className="p-7 flex items-start gap-5">
+                  <div className="rounded-xl bg-primary/10 p-3 text-primary"><BookA className="h-7 w-7" /></div>
+                  <div>
+                    <p className="text-sm font-medium text-primary">2,027 entries</p>
+                    <h3 className="text-xl font-bold mt-1">One-word substitutions</h3>
+                    <p className="text-sm text-muted-foreground mt-2">Search words, definitions, Hindi meanings, and source illustrations.</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
+            <Link href="/collections?collection=idioms" className="group block">
+              <Card className="h-full border-primary/20 transition-colors group-hover:border-primary/60 group-hover:bg-primary/5">
+                <CardContent className="p-7 flex items-start gap-5">
+                  <div className="rounded-xl bg-primary/10 p-3 text-primary"><Quote className="h-7 w-7" /></div>
+                  <div>
+                    <p className="text-sm font-medium text-primary">1,281 entries</p>
+                    <h3 className="text-xl font-bold mt-1">Idioms &amp; phrases</h3>
+                    <p className="text-sm text-muted-foreground mt-2">Browse meanings and matching illustrated cards.</p>
+                  </div>
+                </CardContent>
+              </Card>
+            </Link>
           </div>
         </div>
       </section>
