@@ -38,6 +38,7 @@ export const vocabularyItemsTable = pgTable("vocabulary_items", {
   alphabet: text("alphabet").notNull(),
   topics: jsonb("topics").$type<string[]>().notNull().default([]),
   examRefs: jsonb("exam_refs").$type<string[]>().notNull().default([]),
+  imageUrl: text("image_url"),
   isActive: boolean("is_active").notNull().default(true),
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at").notNull().defaultNow(),

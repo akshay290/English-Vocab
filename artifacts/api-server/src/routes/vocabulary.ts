@@ -182,6 +182,7 @@ router.post("/vocabulary", requireAdmin, async (req, res) => {
         alphabet: data.alphabet.toLowerCase(),
         topics: data.topics ?? [],
         examRefs: data.examRefs ?? [],
+        imageUrl: (data as any).imageUrl ?? (req.body as any).photo ?? null,
       })
       .returning();
 
@@ -314,6 +315,7 @@ function formatVocabItem(item: typeof vocabularyItemsTable.$inferSelect) {
     alphabet: item.alphabet.toUpperCase(),
     topics: (item.topics as string[]) ?? [],
     examRefs: (item.examRefs as string[]) ?? [],
+    imageUrl: (item as any).imageUrl ?? null,
     isActive: item.isActive,
     createdAt: item.createdAt,
   };

@@ -260,10 +260,11 @@ router.post("/admin/vocabulary/bulk", requireAdmin, async (req, res) => {
           synonyms: item.synonyms ?? [],
           antonyms: item.antonyms ?? [],
           difficulty: item.difficulty ?? "medium",
-          category: item.category,
-          alphabet: (item.alphabet ?? item.word[0]).toLowerCase(),
-          topics: item.topics ?? [],
+          category: item.category ?? "one_word_substitution",
+          alphabet: (item.alphabet ?? (item.word ? item.word[0] : "a")).toLowerCase(),
+          topics: item.topics ?? ["OWS"],
           examRefs: item.examRefs ?? [],
+          imageUrl: item.imageUrl ?? item.photo ?? null,
         });
         created++;
       } catch (e: unknown) {
