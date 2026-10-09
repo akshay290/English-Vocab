@@ -11,10 +11,10 @@ paths = [ "/" ]
 localPort = 26172
 
 [services.development]
-run = "pnpm --filter @workspace/ssc-vocab run dev"
+run = "npm --workspace=@workspace/ssc-vocab run dev"
 
 [services.production]
-build = [ "pnpm", "--filter", "@workspace/ssc-vocab", "run", "build" ]
+build = [ "npm", "--workspace=@workspace/ssc-vocab", "run", "build" ]
 serve = "static"
 publicDir = "artifacts/ssc-vocab/dist/public"
 
