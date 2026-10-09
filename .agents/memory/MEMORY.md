@@ -1,0 +1,3 @@
+- [SSC Vocab App Architecture](ssc-vocab-arch.md) — JWT auth, Drizzle ORM, OpenAPI-generated hooks, Wouter v3 flat routing pattern
+- [Wouter v3 Routing Pattern](wouter-v3-routing.md) — nested Switch with /:rest* causes blank render; use flat routes with catchall <Route> instead
+- [api-client-react exports](api-client-react-exports.md) — custom-fetch subpath must be in package.json exports; duplicate export * causes silent issues

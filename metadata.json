@@ -1,0 +1,5 @@
+{
+  "name": "SSC Vocabulary Master",
+  "description": "Comprehensive vocabulary preparation platform for SSC CGL, CHSL, CPO, MTS and Banking exams featuring MCQs, spaced repetition revision, tests, illustrated idiom collections, and progress analytics.",
+  "capabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
