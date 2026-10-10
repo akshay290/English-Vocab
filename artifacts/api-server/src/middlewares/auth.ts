@@ -1,7 +1,11 @@
 import { type Request, type Response, type NextFunction } from "express";
 import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.SESSION_SECRET || "fallback-dev-secret";
+const JWT_SECRET = process.env.SESSION_SECRET ?? "";
+
+if (!JWT_SECRET) {
+  throw new Error("SESSION_SECRET must be configured before starting the API server.");
+}
 
 export interface AuthPayload {
   userId: number;
@@ -22,7 +26,7 @@ export function signToken(payload: AuthPayload): string {
 }
 
 export function verifyToken(token: string): AuthPayload {
-  return jwt.verify(token, JWT_SECRET) as AuthPayload;
+  return jwt.verify(token, JWT_SECRET) as unknown as AuthPayload;
 }
 
 export function requireAuth(req: Request, res: Response, next: NextFunction): void {

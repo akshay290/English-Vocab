@@ -4,17 +4,17 @@ A full-stack vocabulary preparation web app for SSC CGL, CHSL, CPO, MTS, and Ban
 
 ## Run & Operate
 
-- **Frontend** — `pnpm --filter @workspace/ssc-vocab run dev` (Vite, port 5173, workflow: "SSC Vocab Frontend")
-- **API Server** — `PORT=8080 pnpm --filter @workspace/api-server run dev` (Express, port 8080, workflow: "API Server")
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only, run after schema edits)
-- `pnpm --filter @workspace/db run seed` — seed vocabulary data
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from OpenAPI spec
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
+- **Frontend** — `npm --workspace=@workspace/ssc-vocab run dev` (Vite, Replit workflow: `artifacts/ssc-vocab: web`)
+- **API Server** — `npm --workspace=@workspace/api-server run dev` (Express, Replit workflow: `artifacts/api-server: API Server`)
+- `npm --workspace=@workspace/db run push` — push DB schema changes (dev only, run after schema edits)
+- `npm --workspace=@workspace/db run seed` — seed vocabulary data
+- `npm --workspace=@workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from OpenAPI spec
+- `npm run typecheck` — full typecheck across all packages
+- `npm run build` — typecheck + build all packages
 
 ## Stack
 
-- pnpm workspaces, Node.js 20, TypeScript 5
+- npm workspaces, Node.js 22.12+, TypeScript 5
 - **Frontend**: React 18, Vite, TailwindCSS v4, shadcn/ui, Framer Motion, Wouter v3
 - **API**: Express 5, PORT injected by workflow (`PORT=8080`)
 - **DB**: PostgreSQL (Replit-managed) + Drizzle ORM
@@ -36,13 +36,13 @@ A full-stack vocabulary preparation web app for SSC CGL, CHSL, CPO, MTS, and Ban
 - **Overall Mastery**: words answered correctly at least once ÷ words attempted in tests × 100.
 - **Average Accuracy**: total correct answers ÷ total attempted (non-null) answers × 100, to 2 decimal places.
 - **Back navigation**: Completed-test redirects use `{ replace: true }` so the browser back button skips the in-progress test URL.
-- **API server** reads `../../.env` via `--env-file-if-exists` at startup. On Replit, a `.env` at workspace root is generated with `DATABASE_URL` and `SESSION_SECRET` from the environment. Do not commit this file.
+- Replit injects `DATABASE_URL` and `SESSION_SECRET` at runtime; the API exits at startup if `SESSION_SECRET` is missing. Do not commit local `.env` files.
 - **Delete bug fix**: `test_questions` has no `onDelete cascade` on `vocab_item_id`. The delete route explicitly removes orphan test_questions before deleting the word.
 - **Delete All Words** endpoint: `DELETE /api/admin/vocabulary` — clears test_questions + user_word_progress + vocabulary_items in that order.
 
 ## Gotchas
 
-- After any schema change, run `pnpm --filter @workspace/db run push` before restarting the API.
+- After any schema change, run `npm --workspace=@workspace/db run push` before restarting the API.
 - The `score` column in `tests` table is `real` (not integer) to support +2/−0.5 scoring.
 - Wouter v3: use flat routes, avoid nested `Switch` with `/:rest*` (causes blank render).
 - The `api-client-react` package uses a `custom-fetch` subpath export — must be in `package.json` exports.

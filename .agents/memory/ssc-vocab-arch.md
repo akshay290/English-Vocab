@@ -27,7 +27,13 @@ All progress stats (wordsLearned, averageAccuracy, categoryBreakdown, leaderboar
 Redirects to result page after test submission use `{ replace: true }` in wouter's `setLocation`. Prevents back-button loop (user presses back → lands on active test URL → immediately redirects to result again).
 
 ## API server env vars
-DATABASE_URL and SESSION_SECRET are Replit-managed runtime vars. Do NOT use `--env-file` flag in the start script. PORT must be explicitly set in the workflow command: `PORT=8080 pnpm --filter @workspace/api-server run dev`.
+DATABASE_URL and SESSION_SECRET are Replit-managed runtime vars. Do NOT use `--env-file` flag in the start script. The managed API artifact workflow injects PORT.
+
+The API must fail at startup if SESSION_SECRET is absent; never use a public fallback signing secret.
+
+**Why:** A predictable JWT secret lets anyone forge authenticated sessions, including administrator sessions.
+
+**How to apply:** Keep local and Replit configuration dependent on an explicitly configured secret; do not weaken startup validation to make setup appear successful.
 
 ## RadioGroup answer carry-over fix
 Added `key={currentQuestion.id}` to the RadioGroup in ActiveTest.tsx. Forces React to unmount/remount the component on question change, clearing any lingering selection state.
